@@ -26,5 +26,3 @@ def CurrentDayId(first_day_index, current_month):
 
 first_day_index, current_month = FirstDayInAMouth()
 CurrentDayId(first_day_index, current_month)
-
-#def Init_agenda(first_day_name, current_month):

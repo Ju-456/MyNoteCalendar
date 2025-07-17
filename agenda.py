@@ -20,6 +20,13 @@ class AgendaWidget(TabbedPanel):
         Clock.schedule_once(self.select_current_month, 0)
         Clock.schedule_once(self.CurrentDayEffect, 0.1) # wait for the charmgent
 
+        today = datetime.now()
+        year = today.year
+        month = today.month
+        first_day_index = calendar.monthrange(year, month)[0]
+        
+        self.Init_agenda(year, month, first_day_index)
+
     def select_current_month(self, *args):
         month_index = datetime.now().month
           
@@ -48,6 +55,20 @@ class AgendaWidget(TabbedPanel):
             button.background_color = (0.6, 0.8, 1, 1)  # clear blue
         else:
             print(f"the button '{current_day_id}' not found.")
+
+    def Init_agenda(self, current_year, current_month, first_day_index ):
+        nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the mouth
+        count = 1 
+
+        month_abbr = calendar.month_abbr[current_month].lower()
+
+        for i in range(first_day_index, first_day_index + nb_days_in_month):
+            button_id = f"{month_abbr}_{i}_btn"
+
+            if button_id in self.ids:
+                button = self.ids[button_id]
+                button.text = str(count)
+                count += 1
 
 class agenda(App):
     def build(self):

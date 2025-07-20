@@ -10,6 +10,7 @@ import calendar
 from datetime import date, datetime
 
 from calendar_gestion import CurrentDayId 
+from calendar_gestion import MouthConvertInNumber
 
 Builder.load_file("AgendaWidget.kv")
 
@@ -31,10 +32,7 @@ class AgendaWidget(TabbedPanel):
     def SelectCurrentMonth(self, *args):
         month_index = datetime.now().month
           
-        month_ids = [
-            "jan_tab", "feb_tab", "mar_tab", "apr_tab", "may_tab", "jun_tab",
-            "jul_tab", "aug_tab", "sep_tab", "oct_tab", "nov_tab", "dec_tab"
-        ]
+        month_ids = MouthConvertInNumber(args)
 
         current_month_id = month_ids[month_index - 1]
         if current_month_id in self.ids:

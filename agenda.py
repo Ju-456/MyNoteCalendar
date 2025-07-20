@@ -56,7 +56,7 @@ class AgendaWidget(TabbedPanel):
         else:
             print(f"the button '{current_day_id}' not found.")
 
-    def InitCalenderForCurrentMonth(self, current_year, current_month, first_day_index ):
+    def InitCalenderForCurrentMonth(self, current_year, current_month, first_day_index):
         nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the month
         count = 1 
 
@@ -69,6 +69,34 @@ class AgendaWidget(TabbedPanel):
                 button = self.ids[button_id]
                 button.text = str(count)
                 count += 1
+
+        self.DisablePaddingButtons(current_year, current_month, first_day_index)
+
+    def DisablePaddingButtons(self, current_year, current_month, first_day_index):
+        nb_days_in_month = calendar.monthrange(current_year, current_month)[1]
+        month_abbr = calendar.month_abbr[current_month].lower()
+
+        #print(f"Disable Buttons called for {month_abbr},\nnb of days in month: {nb_days_in_month},\nfirst_day_index: {first_day_index}")
+
+        for day in range(0, first_day_index ): # disable days before the 1st
+            button_id = f"{month_abbr}_{day}_btn"
+            if button_id in self.ids:
+                btn = self.ids[button_id]
+                btn.disabled = True
+                btn.background_color = (0.8, 0.8, 0.8, 1)
+                btn.color = (0.5, 0.5, 0.5, 1)
+            else:
+                print(f"Button {button_id} not found!")
+
+        for day in range(nb_days_in_month + first_day_index, 35): # disable days after the 31st
+            button_id = f"{month_abbr}_{day}_btn"
+            if button_id in self.ids:
+                btn = self.ids[button_id]
+                btn.disabled = True
+                btn.background_color = (0.8, 0.8, 0.8, 1)
+                btn.color = (0.5, 0.5, 0.5, 1)
+            else:
+                print(f"Button {button_id} not found!")
 
     def DetectTabChange(self, instance, current_tab):
         current_tab = self.current_tab

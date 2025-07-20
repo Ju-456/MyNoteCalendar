@@ -16,8 +16,8 @@ Builder.load_file("AgendaWidget.kv")
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.select_current_month()
-        Clock.schedule_once(self.select_current_month, 0)
+        self.SelectCurrentMonth()
+        Clock.schedule_once(self.SelectCurrentMonth, 0)
         Clock.schedule_once(self.CurrentDayEffect, 0.1) # wait for the charmgent
 
         today = datetime.now()
@@ -25,9 +25,10 @@ class AgendaWidget(TabbedPanel):
         month = today.month
         first_day_index = calendar.monthrange(year, month)[0]
         
-        self.Init_agenda(year, month, first_day_index)
+        self.InitCalenderForCurrentMonth(year, month, first_day_index)
+        self.bind(current_tab=self.DetectTabChange)
 
-    def select_current_month(self, *args):
+    def SelectCurrentMonth(self, *args):
         month_index = datetime.now().month
           
         month_ids = [
@@ -56,8 +57,8 @@ class AgendaWidget(TabbedPanel):
         else:
             print(f"the button '{current_day_id}' not found.")
 
-    def Init_agenda(self, current_year, current_month, first_day_index ):
-        nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the mouth
+    def InitCalenderForCurrentMonth(self, current_year, current_month, first_day_index ):
+        nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the month
         count = 1 
 
         month_abbr = calendar.month_abbr[current_month].lower()
@@ -69,6 +70,15 @@ class AgendaWidget(TabbedPanel):
                 button = self.ids[button_id]
                 button.text = str(count)
                 count += 1
+
+    def DetectTabChange(self, instance, current_tab):
+        current_tab = self.current_tab
+        print(current_tab.text)
+
+        if current_tab:
+            print(f"User is in the month : {current_tab.text}")
+        else:
+            print("User is nowhere")
 
 class agenda(App):
     def build(self):

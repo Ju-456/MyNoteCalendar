@@ -10,7 +10,8 @@ import calendar
 from datetime import date, datetime
 
 from calendar_gestion import CurrentDayId 
-from calendar_gestion import MouthConvertInNumber
+from calendar_gestion import MonthConvertInNumber
+from calendar_gestion import MonthConvertInNumberDico
 
 Builder.load_file("AgendaWidget.kv")
 
@@ -32,7 +33,7 @@ class AgendaWidget(TabbedPanel):
     def SelectCurrentMonth(self, *args):
         month_index = datetime.now().month
           
-        month_ids = MouthConvertInNumber(args)
+        month_ids = MonthConvertInNumber(args)
 
         current_month_id = month_ids[month_index - 1]
         if current_month_id in self.ids:
@@ -75,6 +76,19 @@ class AgendaWidget(TabbedPanel):
 
         if current_tab:
             print(f"User is in the month : {current_tab.text}")
+
+            month_text = current_tab.text.lower() 
+            month_dict = MonthConvertInNumberDico()
+            month_num = month_dict.get(month_text)
+
+            if not month_num:
+                print("Inval_id tab text, can't convert it")
+                return
+            
+            today = datetime.now()
+            year = today.year
+            first_day_index = calendar.monthrange(year, month_num)[0]
+            self.InitCalenderForCurrentMonth(year, month_num, first_day_index)
         else:
             print("User is nowhere")
 

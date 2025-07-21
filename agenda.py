@@ -67,7 +67,15 @@ class AgendaWidget(TabbedPanel):
 
             if button_id in self.ids:
                 button = self.ids[button_id]
+
                 button.text = str(count)
+                button.halign = "left"
+                button.valign = "top"
+                button.text_size = button.size
+                button.padding = (5, 5)  # optional padding 
+                button.shorten = False  
+                button.markup = True    
+
                 count += 1
 
         self.DisablePaddingButtons(current_year, current_month, first_day_index)

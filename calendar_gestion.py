@@ -13,7 +13,7 @@ def FirstDayInAMonth():
     
     return first_day_index, current_month
 
-def MonthConvertInNumber(*args):
+def MonthConvertInNumber(*args): # to use ".get" bc dico can't be used as ".get"
     return  [
         "jan_tab", "feb_tab", "mar_tab", "apr_tab", "may_tab", "jun_tab",
         "jul_tab", "aug_tab", "sep_tab", "oct_tab", "nov_tab", "dec_tab"

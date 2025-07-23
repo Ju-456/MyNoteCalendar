@@ -14,6 +14,7 @@ from calendar_gestion import MonthConvertInNumber
 from calendar_gestion import MonthConvertInNumberDico
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
+Builder.load_file("kivy_files/NotePopup.kv")
 
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
@@ -75,7 +76,7 @@ class AgendaWidget(TabbedPanel):
                 button.padding = (5, 5)  # optional padding 
                 button.shorten = False  
                 button.markup = True
-                button.bind(on_press=self.WriteInAButton) # to detecxt click    
+                button.bind(on_press=self.DetectClickButton) # to detecxt click    
 
                 count += 1
 

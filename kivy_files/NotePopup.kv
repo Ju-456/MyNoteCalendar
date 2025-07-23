@@ -1,2 +1,7 @@
-<NotePopup>:
-    auto_dismiss
+<NotePopup@Popup>:
+    auto_dismiss : False
+    title : "Note :"
+    Button :
+        text : "Close"
+        font_size : 10
+        on_release : root.dismiss()

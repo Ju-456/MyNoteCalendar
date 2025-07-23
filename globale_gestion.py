@@ -13,7 +13,7 @@ from calendar_gestion import CurrentDayId
 from calendar_gestion import MonthConvertInNumber
 from calendar_gestion import MonthConvertInNumberDico
 
-Builder.load_file("AgendaWidget.kv")
+Builder.load_file("kivy_files/AgendaWidget.kv")
 
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
@@ -129,9 +129,11 @@ class AgendaWidget(TabbedPanel):
         else:
             print("User is nowhere")
 
-    def WriteInAButton(self, instance):
-        print(f"Reaction test -> You clicked: {instance.id}")
-
+    def DetectClickButton(self, instance):
+        today = datetime.now()
+        current_month = today.month
+        month_abbr = calendar.month_abbr[current_month].lower()
+        print(f"Reaction test -> You clicked: {month_abbr}_{instance.text}_btn")
 
 class agenda(App):
     def build(self):

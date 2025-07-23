@@ -1,0 +1,4615 @@
+<AgendaWidget>:
+    do_default_tab: False
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+#january
+    TabbedPanelItem:
+        text: "jan"
+        id: jan_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+                
+                Button:
+                    id: jan_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jan_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+
+#february
+    TabbedPanelItem:
+        text: "feb"
+        id: feb_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: feb_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: feb_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#march
+    TabbedPanelItem:
+        text: "mar"
+        id: mar_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: mar_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: mar_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#april
+    TabbedPanelItem:
+        text: "apr"
+        id: apr_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: apr_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: apr_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#may    
+    TabbedPanelItem:
+        text: "may"
+        id: may_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: may_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: may_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#june
+    TabbedPanelItem:
+        text: "jun"
+        id: jun_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: jun_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jun_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#july    
+    TabbedPanelItem:
+        text: "jul"
+        id: jul_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: jul_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: jul_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#aug   
+    TabbedPanelItem:
+        text: "aug"
+        id: aug_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: aug_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: aug_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#sep
+    TabbedPanelItem:
+        text: "sep"
+        id: sep_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: sep_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: sep_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#oct    
+    TabbedPanelItem:
+        text: "oct"
+        id: oct_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: oct_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: oct_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#nov    
+    TabbedPanelItem:
+        text: "nov"
+        id: nov_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: nov_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: nov_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+    
+#dec    
+    TabbedPanelItem:
+        text: "dec"
+        id: dec_tab
+        BoxLayout:
+            orientation: 'vertical'
+
+            GridLayout:
+                cols: 7
+                size_hint_y: None
+                height: 30  
+
+                Button:
+                    text: "Mon"     
+                Button:
+                    text: "Tue"
+                Button:
+                    text: "Wed"
+                Button:
+                    text: "Thu"
+                Button:
+                    text: "Fri"
+                Button:
+                    text: "Sat"
+                Button:
+                    text: "Sun"
+
+            GridLayout:
+                cols: 7
+                rows: 5   
+                spacing: 5
+                padding: 5
+
+                Button:
+                    id: dec_0_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_1_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_2_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_3_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_4_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_5_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_6_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_7_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_8_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_9_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_10_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_11_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_12_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_13_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_14_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_15_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_16_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_17_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_18_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_19_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_20_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_21_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_22_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_23_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_24_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_25_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_26_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_27_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_28_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_29_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_30_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_31_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_32_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_33_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1
+
+                Button:
+                    id: dec_34_btn
+                    font_size: 10
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    background_normal: ""         
+                    background_color: 1, 1, 1, 1 
+                    color: 0, 0, 0, 1

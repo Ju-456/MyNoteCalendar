@@ -131,10 +131,12 @@ class AgendaWidget(TabbedPanel):
             print("User is nowhere")
 
     def DetectClickButton(self, instance):
-        today = datetime.now()
-        current_month = today.month
-        month_abbr = calendar.month_abbr[current_month].lower()
-        print(f"Reaction test -> You clicked: {month_abbr}_{instance.text}_btn")
+        current_tab = self.current_tab  # active tab
+        if current_tab:
+            month_text = current_tab.text.lower()
+            print(f"Reaction test -> You clicked: {month_text}_{instance.text}_btn")
+        else:
+            print("No tab selected.")
 
 class agenda(App):
     def build(self):

@@ -1,7 +1,37 @@
 <NotePopup@Popup>:
     auto_dismiss : False
-    title : "Note :"
-    Button :
-        text : "Close"
-        font_size : 10
-        on_release : root.dismiss()
+    size_hint : 0.5, 0.6
+    title : ""
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Write your note :"
+            text_size: self.size
+            color: 0, 0, 0, 1
+            font_size: 15
+            halign: "center"
+            valign: "middle"
+            size_hint_y: 0.2
+
+        TextInput:
+            id: note_input
+            multiline: True
+            size_hint_y: 0.6
+
+        Button:
+            text: "save"
+            font_size: 12
+            size_hint_x: None
+            size_hint: 0.1, 0.1   
+            on_release: root.dismiss()
+            background_color: 0.5, 0.9, 0.5, 1  # clear green

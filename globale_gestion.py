@@ -5,6 +5,9 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.clock import Clock
+from kivy.uix.popup import Popup
+from kivy.properties import StringProperty
+from kivy.factory import Factory
 
 import calendar
 from datetime import date, datetime
@@ -134,9 +137,17 @@ class AgendaWidget(TabbedPanel):
         current_tab = self.current_tab  # active tab
         if current_tab:
             month_text = current_tab.text.lower()
-            print(f"Reaction test -> You clicked: {month_text}_{instance.text}_btn")
+            print(f"\nReaction test -> You clicked: {month_text}_{instance.text}_btn\n")
+            button_name = f"Write a note for the {instance.text} {month_text} :"
+            print(button_name)
+
+            popup = NotePopup(label_text=button_name)
+            popup.open()
         else:
             print("No tab selected.")
+            
+class NotePopup(Popup):
+    label_text = StringProperty("")
 
 class agenda(App):
     def build(self):

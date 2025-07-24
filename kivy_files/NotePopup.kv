@@ -1,7 +1,8 @@
-<NotePopup@Popup>:
+<NotePopup>:
     auto_dismiss : False
     size_hint : 0.5, 0.6
     title : ""
+    label_text: ""
 
     BoxLayout:
         orientation: "vertical"
@@ -15,7 +16,7 @@
                 size: self.size
 
         Label:
-            text: "Write your note :"
+            text: root.label_text
             text_size: self.size
             color: 0, 0, 0, 1
             font_size: 15

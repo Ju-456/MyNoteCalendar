@@ -34,6 +34,8 @@ class AgendaWidget(TabbedPanel):
         self.InitCalenderForCurrentMonth(year, month, first_day_index)
         self.bind(current_tab=self.DetectTabChange)
 
+        self.note_popup = None
+
     def SelectCurrentMonth(self, *args):
         month_index = datetime.now().month
           
@@ -141,8 +143,12 @@ class AgendaWidget(TabbedPanel):
             button_name = f"Write a note for the [b]{instance.text} {month_text}[/b] :"
             print(button_name)
 
-            popup = NotePopup(label_text=button_name)
-            popup.open()
+            if not self.note_popup: # if the 'PopUp doesn't exist, we create it only ONE time
+                self.note_popup = NotePopup()
+            
+            self.note_popup.label_text = button_name # maj before open
+            self.note_popup.open()
+
         else:
             print("No tab selected.")
 

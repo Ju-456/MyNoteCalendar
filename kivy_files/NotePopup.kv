@@ -2,7 +2,6 @@
     auto_dismiss : False
     size_hint : 0.5, 0.6
     title : ""
-    label_text: ""
 
     BoxLayout:
         orientation: "vertical"
@@ -17,6 +16,7 @@
 
         Label:
             text: root.label_text
+            markup: True
             text_size: self.size
             color: 0, 0, 0, 1
             font_size: 15

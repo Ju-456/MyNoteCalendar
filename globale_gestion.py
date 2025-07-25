@@ -123,7 +123,7 @@ class AgendaWidget(TabbedPanel):
             month_num = month_dict.get(month_text)
 
             if not month_num:
-                print("Inval_id tab text, can't convert it")
+                print("Invalid tab text, can't convert it")
                 return
             
             today = datetime.now()
@@ -138,16 +138,22 @@ class AgendaWidget(TabbedPanel):
         if current_tab:
             month_text = current_tab.text.lower()
             print(f"\nReaction test -> You clicked: {month_text}_{instance.text}_btn\n")
-            button_name = f"Write a note for the {instance.text} {month_text} :"
+            button_name = f"Write a note for the [b]{instance.text} {month_text}[/b] :"
             print(button_name)
 
             popup = NotePopup(label_text=button_name)
             popup.open()
         else:
             print("No tab selected.")
-            
+
+    #def SaveNoteInAfile():
+
 class NotePopup(Popup):
     label_text = StringProperty("")
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        print("NotePopup created with label_text =", self.label_text)
 
 class agenda(App):
     def build(self):

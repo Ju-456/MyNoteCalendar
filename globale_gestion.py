@@ -77,6 +77,7 @@ class AgendaWidget(TabbedPanel):
             if button_id in self.ids:
                 button = self.ids[button_id]
 
+                day_number = count # real day bc ids button =/= day number
                 button.text = str(count)
                 button.halign = "left"
                 button.valign = "top"
@@ -84,7 +85,14 @@ class AgendaWidget(TabbedPanel):
                 button.padding = (5, 5)  # optional padding 
                 button.shorten = False  
                 button.markup = True
-                button.bind(on_press=self.DetectClickButton) # to detecxt click    
+                button.bind(on_press=self.DetectClickButton) # to detecxt click 
+
+                current_tab_folder = os.path.join(user_home, "NoteCalendar", month_abbr)
+                note_path = os.path.join(current_tab_folder, f"{month_abbr}_{day_number}.txt")
+                print(f"note_path: {note_path}")
+                if os.path.exists(note_path):
+                    button.text += "\n•"
+                    print(f"A note for : {button_id} exist")   
 
                 count += 1
 
@@ -145,6 +153,9 @@ class AgendaWidget(TabbedPanel):
         day = instance.text.lower()
         month = current_tab.text.lower() 
 
+        print(f"day : {day}")
+        print(f"month : {month}")
+        
         if current_tab:
             month_text = current_tab.text.lower()
             print(f"\nReaction test -> You clicked: {month_text}_{instance.text}_btn\n")
@@ -166,7 +177,7 @@ class NotePopup(Popup):
         super().__init__(**kwargs)
         self.day = day
         self.month = month
-        print(f"NotePopup created for day: {day}, month: {month}")
+        print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
 
     def SaveNoteInAfile(self, instance):
         current_tab = self.ids.tab_label.text# active tab
@@ -192,7 +203,7 @@ class NotePopup(Popup):
                     print(f"File contain : {current_tab_file}")
                 print("File saved")
                 self.dismiss()
-        print(f">>> SaveNoteInAfile called with instance = {instance}, text = {instance.text}")
+        print(f"SaveNoteInAfile called with instance = {instance}, text = {instance.text}")
 
 class agenda(App):
     def build(self):

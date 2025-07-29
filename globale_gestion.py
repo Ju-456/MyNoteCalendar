@@ -91,7 +91,7 @@ class AgendaWidget(TabbedPanel):
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{day_number}.txt")
                 print(f"note_path: {note_path}")
                 if os.path.exists(note_path):
-                    button.text += "\n•"
+                    button.text = f"{day_number}\n[size=24][color=#99ccff]•[/color]"
                     print(f"A note for : {button_id} exist")   
 
                 count += 1

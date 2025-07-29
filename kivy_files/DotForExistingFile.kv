@@ -1,0 +1,7 @@
+<DotForExistingFile>:
+    canvas.after:
+        Color:
+            rgba: 1, 0, 0, 1 if self.dot_visible else 0, 0, 0, 0
+        Ellipse:
+            size: dp(6), dp(6)
+            pos: self.right - dp(10), self.y + dp(5)

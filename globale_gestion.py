@@ -12,12 +12,15 @@ from kivy.factory import Factory
 import calendar
 from datetime import date, datetime
 
+import os
+
 from calendar_gestion import CurrentDayId 
 from calendar_gestion import MonthConvertInNumber
 from calendar_gestion import MonthConvertInNumberDico
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
 Builder.load_file("kivy_files/NotePopup.kv")
+user_home = os.path.expanduser("~")
 
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
@@ -137,29 +140,59 @@ class AgendaWidget(TabbedPanel):
 
     def DetectClickButton(self, instance):
         current_tab = self.current_tab  # active tab
+
+        #to integer in NotePopup
+        day = instance.text.lower()
+        month = current_tab.text.lower() 
+
         if current_tab:
             month_text = current_tab.text.lower()
             print(f"\nReaction test -> You clicked: {month_text}_{instance.text}_btn\n")
             button_name = f"Write a note for the [b]{instance.text} {month_text}[/b] :"
             print(button_name)
 
-            if not self.note_popup: # if the 'PopUp doesn't exist, we create it only ONE time
-                self.note_popup = NotePopup()
+            if not self.note_popup: # if the 'PopUp window' doesn't exist, we create it only ONE time
+                self.note_popup = NotePopup(day=day, month=month)
             
             self.note_popup.label_text = button_name # maj before open
             self.note_popup.open()
-
         else:
             print("No tab selected.")
-
-    #def SaveNoteInAfile():
-
+            
 class NotePopup(Popup):
     label_text = StringProperty("")
-
-    def __init__(self, **kwargs):
+    
+    def __init__(self, day, month, **kwargs):
         super().__init__(**kwargs)
-        print("NotePopup created with label_text =", self.label_text)
+        self.day = day
+        self.month = month
+        print(f"NotePopup created for day: {day}, month: {month}")
+
+    def SaveNoteInAfile(self, instance):
+        current_tab = self.ids.tab_label.text# active tab
+        print(f"DEBUG / current_tab = {current_tab}")
+        if current_tab:
+            current_tab_folder = os.path.join(user_home,f"NoteCalendar", f"{self.month}")
+            current_tab_file = os.path.join(current_tab_folder, f"{self.month}_{self.day}.txt")
+            note_text = self.ids.note_input.text
+
+            print(f"DEBUG / current_tab_folder = {current_tab_folder}")
+            print(f"DEBUG / current_tab_file = {current_tab_file}")
+
+            if not os.path.exists(current_tab_folder):
+                print(f"Folder doesn't exit : {current_tab_folder}, creation...")
+                os.makedirs(current_tab_folder, exist_ok=True)
+
+            if os.path.exists(current_tab_file):
+                print(f"the file '{current_tab_file}' already exist")
+                # future pop up window after to propose modification
+            else:
+                with open(current_tab_file, 'w', encoding='utf-8') as f:
+                    f.write(note_text)
+                    print(f"File contain : {current_tab_file}")
+                print("File saved")
+                self.dismiss()
+        print(f">>> SaveNoteInAfile called with instance = {instance}, text = {instance.text}")
 
 class agenda(App):
     def build(self):

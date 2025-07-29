@@ -77,7 +77,7 @@ class AgendaWidget(TabbedPanel):
             if button_id in self.ids:
                 button = self.ids[button_id]
 
-                day_number = count # real day bc ids button =/= day number
+                button.day_number = count # real day bc ids button =/= day number
                 button.text = str(count)
                 button.halign = "left"
                 button.valign = "top"
@@ -88,10 +88,23 @@ class AgendaWidget(TabbedPanel):
                 button.bind(on_press=self.DetectClickButton) # to detecxt click 
 
                 current_tab_folder = os.path.join(user_home, "NoteCalendar", month_abbr)
-                note_path = os.path.join(current_tab_folder, f"{month_abbr}_{day_number}.txt")
+                note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")
+                
+                today = datetime.now()
+                year = today.year
+                current_month = today.month
+
+                first_day_index = calendar.monthrange(year, current_month)[0]
+
+                current_day_id = CurrentDayId(first_day_index, current_month)
+                print(f"current_day_id: {current_day_id}")
+                
                 if os.path.exists(note_path):
-                    button.text = f"{day_number}\n[size=24][color=#99ccff]•[/color]"
+                    if button_id == current_day_id:
+                        button.text = f"{button.day_number}\n[size=24][color=#9909CC]•[/color]" #bc we don't see the blue in blue background
+                    else:
+                        button.text = f"{button.day_number}\n[size=24][color=#99ccff]•[/color]" 
                     print(f"A note for : {button_id} exist")   
 
                 count += 1
@@ -160,7 +173,7 @@ class AgendaWidget(TabbedPanel):
             month_text = current_tab.text.lower()
             print(f"\nReaction test -> You clicked: {month_text}_{instance.text}_btn\n")
             button_name = f"Write a note for the [b]{instance.text} {month_text}[/b] :"
-            print(button_name)
+            #print(button_name)
 
             if not self.note_popup: # if the 'PopUp window' doesn't exist, we create it only ONE time
                 self.note_popup = NotePopup(day=day, month=month)
@@ -175,7 +188,7 @@ class NotePopup(Popup):
     
     def __init__(self, day, month, **kwargs):
         super().__init__(**kwargs)
-        self.day = day
+        self.day = day.splitlines()[0]
         self.month = month
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
 
@@ -185,6 +198,8 @@ class NotePopup(Popup):
         if current_tab:
             current_tab_folder = os.path.join(user_home,f"NoteCalendar", f"{self.month}")
             current_tab_file = os.path.join(current_tab_folder, f"{self.month}_{self.day}.txt")
+            print(f"DEBUG / self.month = {self.month}")
+            print(f"DEBUG / self.day = {self.day}")
             note_text = self.ids.note_input.text
 
             print(f"DEBUG / current_tab_folder = {current_tab_folder}")

@@ -1,6 +1,7 @@
 import calendar
 from datetime import date, datetime
 
+import os
 import re 
 
 def FirstDayInAMonth():
@@ -37,5 +38,21 @@ def CurrentDayId(first_day_index, current_month):
 
     return current_day_id
 
-first_day_index, current_month = FirstDayInAMonth()
-CurrentDayId(first_day_index, current_month)
+def GetDotMarkupFromFile(filepath, current_day_id, button_id, button_day_number):
+    if not os.path.exists(filepath):
+        return str(button_day_number)
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    max_dots = 7
+    number_of_dot = len(re.findall(r"^-", content, re.MULTILINE))
+    number_of_dot = min(number_of_dot, max_dots)  # limit = max_dots
+
+    if number_of_dot == 0:
+        return str(button_day_number)
+
+    color = "#9909CC" if button_id == current_day_id else "#99ccff"
+    print(f"button_id = {button_id} current_day_id = {current_day_id}")
+    dots = "• " * number_of_dot
+    return f"{button_day_number}\n[size=24][color={color}]{dots.strip()}[/color]"

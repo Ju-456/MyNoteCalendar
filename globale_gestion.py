@@ -11,12 +11,12 @@ from kivy.factory import Factory
 
 import calendar
 from datetime import date, datetime
-
 import os
 
 from calendar_gestion import CurrentDayId 
 from calendar_gestion import MonthConvertInNumber
 from calendar_gestion import MonthConvertInNumberDico
+from calendar_gestion import GetDotMarkupFromFile
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
 Builder.load_file("kivy_files/NotePopup.kv")
@@ -97,15 +97,10 @@ class AgendaWidget(TabbedPanel):
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")
                 
-                if os.path.exists(note_path):
-                    if current_day_id and button_id == current_day_id:
-                        button.text = f"{button.day_number}\n[size=24][color=#9909CC]•[/color]" #bc we don't see the blue in blue background
-                    else:
-                        button.text = f"{button.day_number}\n[size=24][color=#99ccff]•[/color]" 
-                    print(f"A note for : {button_id} exist")   
-
+                if os.path.exists(note_path):  
+                    button.text = GetDotMarkupFromFile(note_path, current_day_id, button_id, button.day_number)
+                
                 count += 1
-
         
         self.DisablePaddingButtons(current_year, current_month, first_day_index)
 
@@ -161,7 +156,7 @@ class AgendaWidget(TabbedPanel):
         current_tab = self.current_tab  # active tab
 
         #to integer in NotePopup
-        day = instance.text.lower()
+        day = instance.text.strip().splitlines()[0]
         month = current_tab.text.lower() 
 
         print(f"day : {day}")
@@ -187,12 +182,12 @@ class NotePopup(Popup):
     
     def __init__(self, day, month, **kwargs):
         super().__init__(**kwargs)
-        self.day = day.splitlines()[0]
+        self.day = str(day).strip().splitlines()[0]
         self.month = month
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
 
     def SaveNoteInAfile(self, instance):
-        current_tab = self.ids.tab_label.text# active tab
+        current_tab = self.ids.tab_label.text # active tab
         print(f"DEBUG / current_tab = {current_tab}")
 
         if current_tab:

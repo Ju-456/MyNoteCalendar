@@ -50,8 +50,8 @@ def GetDotMarkupFromFile(filepath, current_day_id, button_id, button_day_number)
     number_of_dot = min(number_of_dot, max_dots)  # limit = max_dots
 
     if number_of_dot == 0:
-        return str(button_day_number)
-
+        number_of_dot = 1 # to have at least one point as an indicator
+    
     color = "#9909CC" if button_id == current_day_id else "#99ccff"
     print(f"button_id = {button_id} current_day_id = {current_day_id}")
     dots = "• " * number_of_dot

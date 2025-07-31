@@ -71,11 +71,11 @@ class AgendaWidget(TabbedPanel):
 
         month_abbr = calendar.month_abbr[current_month].lower()
         today = datetime.now()
-        year = today.year
-        current_month = today.month
-        first_day_index = calendar.monthrange(year, current_month)[0]
-        current_day_id = CurrentDayId(first_day_index, current_month)
-        print(f"current_day_id: {current_day_id}")
+        current_day_id = None
+        if current_month == today.month and current_year == today.year:
+            today_first_day_index = calendar.monthrange(current_year, current_month)[0]
+            current_day_id = CurrentDayId(today_first_day_index, current_month)
+            print(f"current_day_id: {current_day_id}")
 
         for i in range(first_day_index, first_day_index + nb_days_in_month):
             button_id = f"{month_abbr}_{i}_btn"
@@ -98,7 +98,7 @@ class AgendaWidget(TabbedPanel):
                 print(f"note_path: {note_path}")
                 
                 if os.path.exists(note_path):
-                    if button_id == current_day_id:
+                    if current_day_id and button_id == current_day_id:
                         button.text = f"{button.day_number}\n[size=24][color=#9909CC]•[/color]" #bc we don't see the blue in blue background
                     else:
                         button.text = f"{button.day_number}\n[size=24][color=#99ccff]•[/color]" 

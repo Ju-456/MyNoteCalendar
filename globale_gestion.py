@@ -70,6 +70,12 @@ class AgendaWidget(TabbedPanel):
         count = 1 
 
         month_abbr = calendar.month_abbr[current_month].lower()
+        today = datetime.now()
+        year = today.year
+        current_month = today.month
+        first_day_index = calendar.monthrange(year, current_month)[0]
+        current_day_id = CurrentDayId(first_day_index, current_month)
+        print(f"current_day_id: {current_day_id}")
 
         for i in range(first_day_index, first_day_index + nb_days_in_month):
             button_id = f"{month_abbr}_{i}_btn"
@@ -91,15 +97,6 @@ class AgendaWidget(TabbedPanel):
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")
                 
-                today = datetime.now()
-                year = today.year
-                current_month = today.month
-
-                first_day_index = calendar.monthrange(year, current_month)[0]
-
-                current_day_id = CurrentDayId(first_day_index, current_month)
-                print(f"current_day_id: {current_day_id}")
-                
                 if os.path.exists(note_path):
                     if button_id == current_day_id:
                         button.text = f"{button.day_number}\n[size=24][color=#9909CC]•[/color]" #bc we don't see the blue in blue background
@@ -109,6 +106,7 @@ class AgendaWidget(TabbedPanel):
 
                 count += 1
 
+        
         self.DisablePaddingButtons(current_year, current_month, first_day_index)
 
     def DisablePaddingButtons(self, current_year, current_month, first_day_index):
@@ -170,19 +168,20 @@ class AgendaWidget(TabbedPanel):
         print(f"month : {month}")
         
         if current_tab:
-            month_text = current_tab.text.lower()
-            print(f"\nReaction test -> You clicked: {month_text}_{instance.text}_btn\n")
-            button_name = f"Write a note for the [b]{instance.text} {month_text}[/b] :"
+            print(f"\nReaction test -> You clicked: {month}_{day}_btn\n")
+            button_name = f"Write a note for the [b]{day} {month}[/b] :"
             #print(button_name)
 
-            if not self.note_popup: # if the 'PopUp window' doesn't exist, we create it only ONE time
+            if not self.note_popup:
                 self.note_popup = NotePopup(day=day, month=month)
-            
-            self.note_popup.label_text = button_name # maj before open
-            self.note_popup.open()
-        else:
-            print("No tab selected.")
-            
+                self.note_popup.open()
+            else:# maj of all attribute
+                self.note_popup.day = day
+                self.note_popup.month = month
+                self.note_popup.label_text = button_name # maj before open
+                self.note_popup.LoadNote(month)  # forced the loading
+                self.note_popup.open()
+                        
 class NotePopup(Popup):
     label_text = StringProperty("")
     
@@ -195,13 +194,18 @@ class NotePopup(Popup):
     def SaveNoteInAfile(self, instance):
         current_tab = self.ids.tab_label.text# active tab
         print(f"DEBUG / current_tab = {current_tab}")
+
         if current_tab:
             current_tab_folder = os.path.join(user_home,f"NoteCalendar", f"{self.month}")
             current_tab_file = os.path.join(current_tab_folder, f"{self.month}_{self.day}.txt")
             print(f"DEBUG / self.month = {self.month}")
             print(f"DEBUG / self.day = {self.day}")
-            note_text = self.ids.note_input.text
+            note_text = self.ids.note_input.text.strip() # remove the space at the beginning and end of the txt
 
+            if not note_text:
+                print("Note is empty, not saving.")
+                return 
+    
             print(f"DEBUG / current_tab_folder = {current_tab_folder}")
             print(f"DEBUG / current_tab_file = {current_tab_file}")
 
@@ -210,15 +214,37 @@ class NotePopup(Popup):
                 os.makedirs(current_tab_folder, exist_ok=True)
 
             if os.path.exists(current_tab_file):
-                print(f"the file '{current_tab_file}' already exist")
-                # future pop up window after to propose modification
+                print(f"the file '{current_tab_file}' already exist") 
+                self.LoadNote(self.month)
             else:
                 with open(current_tab_file, 'w', encoding='utf-8') as f:
                     f.write(note_text)
                     print(f"File contain : {current_tab_file}")
                 print("File saved")
                 self.dismiss()
+
         print(f"SaveNoteInAfile called with instance = {instance}, text = {instance.text}")
+        
+    def LoadNote(self, month):
+        current_tab_folder = os.path.join(user_home, "NoteCalendar", month)
+        note_path = os.path.join(current_tab_folder, f"{month}_{self.day}.txt")
+        print(f"current_tab_folder: {current_tab_folder}")
+        print(f"note_path: {note_path}")
+
+        current_tab = self.ids.tab_label.text # active tab
+        print(f"DEBUG / current_tab = {current_tab}")
+
+        self.ids.note_input.text = "" # remove the last txt before
+
+        if current_tab and os.path.exists(note_path):
+            with open(note_path, 'r', encoding='utf-8') as f:
+                note_text = f.read()  # reading the file
+
+            self.ids.note_input.text = note_text  # affected the widget's contain
+            print("Note loaded:", note_text)
+        else:
+            self.ids.note_input.text = ""
+            print("File does not exist.")
 
 class agenda(App):
     def build(self):

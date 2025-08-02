@@ -1,3 +1,14 @@
+<ButtonRounded@Button>:
+    background_normal: ''  
+    background_color: 0.8, 0.9, 1, 1  # clear blue
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [15, 15, 15, 15]  
+
 <NotePopup>:
     auto_dismiss: False
     size_hint: 0.5, 0.6
@@ -43,23 +54,32 @@
                 height: '40dp'
                 spacing: 5
 
-                Button:
-                    text: "Bold"
+                ButtonRounded:
+                    text: "[b]B[/b]"
+                    markup: True
                     on_release: root.apply_style("bold")
 
-                Button:
-                    text: "Italic"
+                ButtonRounded:
+                    text: "[i]It[/i]"
+                    markup: True
                     on_release: root.apply_style("italic")
 
-                Button:
-                    text: "Highlight"
+                ButtonRounded:
+                    text: "[s]U[/s]"
+                    markup: True
+                    on_release: root.apply_style("underline") 
+
+                ButtonRounded:
+                    text: "[color=#ffffcc]H[/color]"
+                    markup: True
                     on_release: root.toggle_highlight_menu()
 
-                Button:
-                    text: "Color"
+                ButtonRounded:
+                    text: "[color=ff0000]C[/color][color=000000]o[/color][color=00aa00]l[/color][color=0000ff]o[/color][color=ffff00]r[/color]"
+                    markup: True
                     on_release: root.toggle_color_menu()
 
-                # Widget vide qui pousse "Save" à droite
+                # Widget who push "Save" in the right
                 Widget:
 
                 Button:

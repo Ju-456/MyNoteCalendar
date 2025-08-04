@@ -70,8 +70,10 @@
                     on_release: root.apply_style("underline") 
 
                 ButtonRounded:
-                    text: "[color=#ffffcc]H[/color]"
-                    markup: True
+                    text: "H"
+                    color: 0.5, 0.5, 0.5, 1
+                    background_normal: ''
+                    background_color: 1, 1, 0.7, 1
                     on_release: root.toggle_highlight_menu()
 
                 ButtonRounded:
@@ -100,15 +102,24 @@
                 spacing: 5
 
                 Button:
-                    text: "Vert pastel"
+                    text: "G"
+                    color: 0.5, 0.5, 0.5, 1
+                    background_normal: ''
+                    background_color: 0.8, 1, 0.8, 1
                     on_release: root.apply_style("highlight_green")
 
                 Button:
-                    text: "Jaune pastel"
+                    text: "Y"
+                    color: 0.5, 0.5, 0.5, 1
+                    background_normal: ''
+                    background_color: 1, 1, 0.7, 1
                     on_release: root.apply_style("highlight_yellow")
 
                 Button:
-                    text: "Bleu pastel"
+                    text: "B"
+                    color: 0.5, 0.5, 0.5, 1
+                    background_normal: ''
+                    background_color: 0.8, 0.9, 1, 1
                     on_release: root.apply_style("highlight_blue")
 
             # sub-menu for colors

@@ -119,18 +119,22 @@
                 opacity: 0
                 spacing: 5
 
-                Button:
-                    text: "Rouge"
+                ButtonRounded:
+                    text: "[color=ff0000]R[/color]"
+                    markup: True
                     on_release: root.apply_style("color_red")
 
-                Button:
-                    text: "Noir"
+                ButtonRounded:
+                    text: "[color=000000]B[/color][color=00aa00]"
+                    markup: True
                     on_release: root.apply_style("color_black")
 
-                Button:
-                    text: "Vert"
+                ButtonRounded:
+                    text: "[color=00aa00]G[/color]"
+                    markup: True
                     on_release: root.apply_style("color_green")
 
-                Button:
-                    text: "Bleu"
+                ButtonRounded:
+                    text: "[color=0000ff]B[/color]"
+                    markup: True
                     on_release: root.apply_style("color_blue")

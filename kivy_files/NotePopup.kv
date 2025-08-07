@@ -26,6 +26,17 @@
                 pos: self.pos
                 size: self.size
 
+        Button:
+            text: "X"
+            size_hint: None, None
+            size: dp(20), dp(20)
+            background_normal: ""
+            background_color: 1, 0.4, 0.4, 1  # clear red
+            color: 1, 1, 1, 1  
+            font_size: '16sp'
+            on_release: root.dismiss()
+            pos_hint: {"right": 1, "top": 1}
+
         Label:
             id: tab_label
             text: root.label_text

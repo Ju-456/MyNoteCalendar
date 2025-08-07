@@ -188,7 +188,7 @@ class NotePopup(Popup):
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
         self.ids.note_input.bind(text=self.update_preview)
 
-    def SaveNoteInAfile(self, instance):
+    def SaveNoteInAfile(self):
         current_tab = self.ids.tab_label.text # active tab
         print(f"DEBUG / current_tab = {current_tab}")
 
@@ -220,8 +220,8 @@ class NotePopup(Popup):
                 print("File saved")
                 self.dismiss()
 
-        print(f"SaveNoteInAfile called with instance = {instance}, text = {instance.text}")
-        
+        print(f"SaveNoteInAfile called. Text content: {self.ids.note_input.text}")
+
     def LoadNote(self, month):
         current_tab_folder = os.path.join(user_home, "NoteCalendar", month)
         note_path = os.path.join(current_tab_folder, f"{month}_{self.day}.txt")

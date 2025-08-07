@@ -266,9 +266,6 @@ class NotePopup(Popup):
         s = self.selection_from
         e = self.selection_to
 
-        print("Focus:", ti.focus)
-        print(f"Style d’application : s = {s}, e = {e}")
-
         if s == e:
             print("No text selected")
             return
@@ -276,34 +273,50 @@ class NotePopup(Popup):
         if s > e:
             s, e = e, s
 
-        selected = ti.text[s:e]
-        ti.select_text(s, e) #force the selection even if we lost the focus when we click on a button
+        selected = ti.text[s:e] #force the selection even if we lost the focus when we click on a button
+        ti.select_text(s, e)
 
+        # Handle bold
         if style == "bold":
-            wrapped = f"[b]{selected}[/b]"
-            
+            if selected.startswith("[b]") and selected.endswith("[/b]"):
+                wrapped = selected[3:-4]
+            else:
+                wrapped = f"[b]{selected}[/b]"
+
         elif style == "italic":
-            wrapped = f"[i]{selected}[/i]"
+            if selected.startswith("[i]") and selected.endswith("[/i]"):
+                wrapped = selected[3:-4]
+            else:
+                wrapped = f"[i]{selected}[/i]"
 
         elif style == "highlight_green":
-            wrapped = f"[color=#ccffcc]{selected}[/color]" 
+            color_code = "#ccffcc"
+            wrapped = self.toggle_color(selected, color_code)
 
         elif style == "highlight_yellow":
-            wrapped = f"[color=#ffffcc]{selected}[/color]"  
+            color_code = "#ffffcc"
+            wrapped = self.toggle_color(selected, color_code)
 
         elif style == "highlight_blue":
-            wrapped = f"[color=#cce5ff]{selected}[/color]" 
+            color_code = "#cce5ff"
+            wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_red":
-            wrapped = f"[color=ff0000]{selected}[/color]"
+            color_code = "ff0000"
+            wrapped = self.toggle_color(selected, color_code)
+
         elif style == "color_black":
-            wrapped = f"[color=000000]{selected}[/color]"
+            color_code = "000000"
+            wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_green":
-            wrapped = f"[color=00aa00]{selected}[/color]"
+            color_code = "00aa00"
+            wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_blue":
-            wrapped = f"[color=0000ff]{selected}[/color]"
+            color_code = "0000ff"
+            wrapped = self.toggle_color(selected, color_code)
+
         else:
             return
 

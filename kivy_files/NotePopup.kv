@@ -41,6 +41,18 @@
             id: note_input
             multiline: True
             size_hint_y: 0.6
+            on_selection_text: root.store_selection(self.selection_from, self.selection_to)
+        
+        Label:
+            id: preview_label
+            markup: True
+            text: root.get_markup_preview()
+            text_size: self.size
+            color: 0, 0, 0, 1
+            font_size: 15
+            halign: "left"
+            valign: "top"
+            size_hint_y: 0.3
 
         BoxLayout:
             orientation: 'vertical'
@@ -57,29 +69,29 @@
                 ButtonRounded:
                     text: "[b]B[/b]"
                     markup: True
-                    on_release: root.apply_style("bold")
+                    on_press: root.apply_style("bold")
 
                 ButtonRounded:
                     text: "[i]It[/i]"
                     markup: True
-                    on_release: root.apply_style("italic")
+                    on_press: root.apply_style("italic")
 
                 ButtonRounded:
                     text: "[s]U[/s]"
                     markup: True
-                    on_release: root.apply_style("underline") 
+                    on_press: root.apply_style("underline") 
 
                 ButtonRounded:
                     text: "H"
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 1, 1, 0.7, 1
-                    on_release: root.toggle_highlight_menu()
+                    on_press: root.toggle_highlight_menu()
 
                 ButtonRounded:
                     text: "[color=ff0000]C[/color][color=000000]o[/color][color=00aa00]l[/color][color=0000ff]o[/color][color=ffff00]r[/color]"
                     markup: True
-                    on_release: root.toggle_color_menu()
+                    on_press: root.toggle_color_menu()
 
                 # Widget who push "Save" in the right
                 Widget:
@@ -106,21 +118,21 @@
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 0.8, 1, 0.8, 1
-                    on_release: root.apply_style("highlight_green")
+                    on_press: root.apply_style("highlight_green")
 
                 Button:
                     text: "Y"
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 1, 1, 0.7, 1
-                    on_release: root.apply_style("highlight_yellow")
+                    on_press: root.apply_style("highlight_yellow")
 
                 Button:
                     text: "B"
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 0.8, 0.9, 1, 1
-                    on_release: root.apply_style("highlight_blue")
+                    on_press: root.apply_style("highlight_blue")
 
             # sub-menu for colors
             BoxLayout:
@@ -133,19 +145,19 @@
                 ButtonRounded:
                     text: "[color=ff0000]R[/color]"
                     markup: True
-                    on_release: root.apply_style("color_red")
+                    on_press: root.apply_style("color_red")
 
                 ButtonRounded:
                     text: "[color=000000]B[/color][color=00aa00]"
                     markup: True
-                    on_release: root.apply_style("color_black")
+                    on_press: root.apply_style("color_black")
 
                 ButtonRounded:
                     text: "[color=00aa00]G[/color]"
                     markup: True
-                    on_release: root.apply_style("color_green")
+                    on_press: root.apply_style("color_green")
 
                 ButtonRounded:
                     text: "[color=0000ff]B[/color]"
                     markup: True
-                    on_release: root.apply_style("color_blue")
+                    on_press: root.apply_style("color_blue")

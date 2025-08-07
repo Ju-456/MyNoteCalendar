@@ -8,6 +8,7 @@ from kivy.clock import Clock
 from kivy.uix.popup import Popup
 from kivy.properties import StringProperty
 from kivy.factory import Factory
+from kivy.uix.textinput import TextInput
 
 import calendar
 from datetime import date, datetime
@@ -185,6 +186,7 @@ class NotePopup(Popup):
         self.day = str(day).strip().splitlines()[0]
         self.month = month
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
+        self.ids.note_input.bind(text=self.update_preview)
 
     def SaveNoteInAfile(self, instance):
         current_tab = self.ids.tab_label.text # active tab
@@ -240,6 +242,92 @@ class NotePopup(Popup):
         else:
             self.ids.note_input.text = ""
             print("File does not exist.")
+
+    def get_markup_preview(self):
+        return self.ids.note_input.text
+    
+    def update_preview(self, instance, value):
+        self.ids.preview_label.text = value
+
+    def store_selection(self, s, e):
+        self.selection_from = s
+        self.selection_to = e
+        print(f"Register selection : s = {s} et e = {e}")
+    
+    def select_and_store(self):
+        ti = self.ids.note_input
+        ti.focus = True
+        
+        Clock.schedule_once(lambda dt: ti.select_all(), 0) # 1st clock cycle : register the departure
+        Clock.schedule_once(lambda dt: self.store_selection(ti.selection_from, ti.selection_to), 0.01) # # 2nd clock cycle : save all the selection 
+
+    def apply_style(self, style):
+        ti = self.ids.note_input
+        s = self.selection_from
+        e = self.selection_to
+
+        print("Focus:", ti.focus)
+        print(f"Style d’application : s = {s}, e = {e}")
+
+        if s == e:
+            print("No text selected")
+            return
+
+        if s > e:
+            s, e = e, s
+
+        selected = ti.text[s:e]
+        ti.select_text(s, e) #force the selection even if we lost the focus when we click on a button
+
+        if style == "bold":
+            wrapped = f"[b]{selected}[/b]"
+            
+        elif style == "italic":
+            wrapped = f"[i]{selected}[/i]"
+
+        elif style == "highlight_green":
+            wrapped = f"[color=#ccffcc]{selected}[/color]" 
+
+        elif style == "highlight_yellow":
+            wrapped = f"[color=#ffffcc]{selected}[/color]"  
+
+        elif style == "highlight_blue":
+            wrapped = f"[color=#cce5ff]{selected}[/color]" 
+
+        elif style == "color_red":
+            wrapped = f"[color=ff0000]{selected}[/color]"
+        elif style == "color_black":
+            wrapped = f"[color=000000]{selected}[/color]"
+
+        elif style == "color_green":
+            wrapped = f"[color=00aa00]{selected}[/color]"
+
+        elif style == "color_blue":
+            wrapped = f"[color=0000ff]{selected}[/color]"
+        else:
+            return
+
+        ti.text = ti.text[:s] + wrapped + ti.text[e:]
+        self.note_preview = ti.text
+        ti.focus = True
+
+    def toggle_color_menu(self):
+        color_menu = self.ids.color_menu
+        if color_menu.height == 0:
+            color_menu.height = '40dp'
+            color_menu.opacity = 1
+        else:
+            color_menu.height = 0
+            color_menu.opacity = 0
+
+    def toggle_highlight_menu(self):
+        highlight_menu = self.ids.highlight_menu
+        if highlight_menu.height == 0:
+            highlight_menu.height = '40dp'
+            highlight_menu.opacity = 1
+        else:
+            highlight_menu.height = 0
+            highlight_menu.opacity = 0
 
 class agenda(App):
     def build(self):

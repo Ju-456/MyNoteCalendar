@@ -210,15 +210,10 @@ class NotePopup(Popup):
                 print(f"Folder doesn't exit : {current_tab_folder}, creation...")
                 os.makedirs(current_tab_folder, exist_ok=True)
 
-            if os.path.exists(current_tab_file):
-                print(f"the file '{current_tab_file}' already exist") 
-                self.LoadNote(self.month)
-            else:
-                with open(current_tab_file, 'w', encoding='utf-8') as f:
-                    f.write(note_text)
-                    print(f"File contain : {current_tab_file}")
-                print("File saved")
-                self.dismiss()
+            with open(current_tab_file, 'w', encoding='utf-8') as f:
+                f.write(note_text)
+                print(f"Note mise à jour dans le fichier : {current_tab_file}")
+            self.dismiss()
 
         print(f"SaveNoteInAfile called. Text content: {self.ids.note_input.text}")
 
@@ -276,7 +271,6 @@ class NotePopup(Popup):
         selected = ti.text[s:e] #force the selection even if we lost the focus when we click on a button
         ti.select_text(s, e)
 
-        # Handle bold
         if style == "bold":
             if selected.startswith("[b]") and selected.endswith("[/b]"):
                 wrapped = selected[3:-4]
@@ -323,6 +317,15 @@ class NotePopup(Popup):
         ti.text = ti.text[:s] + wrapped + ti.text[e:]
         self.note_preview = ti.text
         ti.focus = True
+
+    def toggle_color(self, text, color_code):
+        open_tag = f"[color={color_code}]"
+        close_tag = "[/color]"
+
+        if text.startswith(open_tag) and text.endswith(close_tag):
+            return text[len(open_tag):-len(close_tag)]
+        else:
+            return f"{open_tag}{text}{close_tag}"
 
     def toggle_color_menu(self):
         color_menu = self.ids.color_menu

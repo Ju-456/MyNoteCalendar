@@ -283,15 +283,15 @@ class NotePopup(Popup):
             else:
                 wrapped = f"[i]{selected}[/i]"
 
-        elif style == "highlight_green":
+        elif style == "pastel_green":
             color_code = "#ccffcc"
             wrapped = self.toggle_color(selected, color_code)
 
-        elif style == "highlight_yellow":
+        elif style == "pastel_yellow":
             color_code = "#ffffcc"
             wrapped = self.toggle_color(selected, color_code)
 
-        elif style == "highlight_blue":
+        elif style == "pastel_blue":
             color_code = "#cce5ff"
             wrapped = self.toggle_color(selected, color_code)
 
@@ -336,14 +336,14 @@ class NotePopup(Popup):
             color_menu.height = 0
             color_menu.opacity = 0
 
-    def toggle_highlight_menu(self):
-        highlight_menu = self.ids.highlight_menu
-        if highlight_menu.height == 0:
-            highlight_menu.height = '40dp'
-            highlight_menu.opacity = 1
+    def toggle_pastel_menu(self):
+        pastel_menu = self.ids.pastel_menu
+        if pastel_menu.height == 0:
+            pastel_menu.height = '40dp'
+            pastel_menu.opacity = 1
         else:
-            highlight_menu.height = 0
-            highlight_menu.opacity = 0
+            pastel_menu.height = 0
+            pastel_menu.opacity = 0
 
 class agenda(App):
     def build(self):

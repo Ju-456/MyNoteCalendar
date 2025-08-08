@@ -88,16 +88,11 @@
                     on_press: root.apply_style("italic")
 
                 ButtonRounded:
-                    text: "[s]U[/s]"
-                    markup: True
-                    on_press: root.apply_style("underline") 
-
-                ButtonRounded:
-                    text: "H"
+                    text: "Pastel"
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 1, 1, 0.7, 1
-                    on_press: root.toggle_highlight_menu()
+                    on_press: root.toggle_pastel_menu()
 
                 ButtonRounded:
                     text: "[color=ff0000]C[/color][color=000000]o[/color][color=00aa00]l[/color][color=0000ff]o[/color][color=ffff00]r[/color]"
@@ -116,9 +111,9 @@
                         root.dismiss()
                     background_color: 0.5, 0.9, 0.5, 1
 
-            # sub-menu for highlight
+            # sub-menu for pastel
             BoxLayout:
-                id: highlight_menu
+                id: pastel_menu
                 size_hint_y: None
                 height: 0
                 opacity: 0
@@ -129,21 +124,21 @@
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 0.8, 1, 0.8, 1
-                    on_press: root.apply_style("highlight_green")
+                    on_press: root.apply_style("pastel_green")
 
                 Button:
                     text: "Y"
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 1, 1, 0.7, 1
-                    on_press: root.apply_style("highlight_yellow")
+                    on_press: root.apply_style("pastel_yellow")
 
                 Button:
                     text: "B"
                     color: 0.5, 0.5, 0.5, 1
                     background_normal: ''
                     background_color: 0.8, 0.9, 1, 1
-                    on_press: root.apply_style("highlight_blue")
+                    on_press: root.apply_style("pastel_blue")
 
             # sub-menu for colors
             BoxLayout:

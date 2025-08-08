@@ -9,6 +9,7 @@ from kivy.uix.popup import Popup
 from kivy.properties import StringProperty
 from kivy.factory import Factory
 from kivy.uix.textinput import TextInput
+from kivy.properties import BooleanProperty
 
 import calendar
 from datetime import date, datetime
@@ -180,6 +181,7 @@ class AgendaWidget(TabbedPanel):
                         
 class NotePopup(Popup):
     label_text = StringProperty("")
+    show_preview = BooleanProperty(True)
     
     def __init__(self, day, month, **kwargs):
         super().__init__(**kwargs)
@@ -237,9 +239,6 @@ class NotePopup(Popup):
         else:
             self.ids.note_input.text = ""
             print("File does not exist.")
-
-    def get_markup_preview(self):
-        return self.ids.note_input.text
     
     def update_preview(self, instance, value):
         self.ids.preview_label.text = value
@@ -344,6 +343,10 @@ class NotePopup(Popup):
         else:
             pastel_menu.height = 0
             pastel_menu.opacity = 0
+
+    def toggle_view(self):
+        self.show_preview = not self.show_preview
+        self.update_preview(None, self.ids.note_input.text)
 
 class agenda(App):
     def build(self):

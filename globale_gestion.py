@@ -17,6 +17,7 @@ import calendar
 from datetime import date, datetime
 import os
 import time
+import re
 
 from calendar_gestion import CurrentDayId 
 from calendar_gestion import MonthConvertInNumber
@@ -327,10 +328,6 @@ class NotePopup(Popup):
             color_code = "#7a0202"
             wrapped = self.toggle_color(selected, color_code)
 
-        elif style == "color_black":
-            color_code = "000000"
-            wrapped = self.toggle_color(selected, color_code)
-
         elif style == "color_green":
             color_code = "#036d03"
             wrapped = self.toggle_color(selected, color_code)
@@ -350,8 +347,11 @@ class NotePopup(Popup):
         open_tag = f"[color={color_code}]"
         close_tag = "[/color]"
 
-        if text.startswith(open_tag) and text.endswith(close_tag):
-            return text[len(open_tag):-len(close_tag)]
+        pattern = re.compile(rf'^\[color={re.escape(color_code)}\](.*)\[/color\]$', re.DOTALL)
+
+        match = pattern.match(text)
+        if match:
+            return match.group(1)
         else:
             return f"{open_tag}{text}{close_tag}"
 

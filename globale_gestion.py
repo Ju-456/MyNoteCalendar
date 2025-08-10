@@ -235,10 +235,14 @@ class NotePopup(Popup):
                 note_text = f.read()  # reading the file
 
             self.ids.note_input.text = note_text  # affected the widget's contain
+            self.show_preview = True
             print("Note loaded:", note_text)
+            return True
         else:
             self.ids.note_input.text = ""
+            self.show_preview = False
             print("File does not exist.")
+            return False
     
     def update_preview(self, instance, value):
         self.ids.preview_label.text = value

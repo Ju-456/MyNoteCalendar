@@ -312,19 +312,19 @@ class NotePopup(Popup):
                 wrapped = f"[i]{selected}[/i]"
 
         elif style == "pastel_green":
-            color_code = "#ccffcc"
+            color_code = "#a6fca6"
             wrapped = self.toggle_color(selected, color_code)
 
         elif style == "pastel_yellow":
-            color_code = "#ffffcc"
+            color_code = "#dada6c"
             wrapped = self.toggle_color(selected, color_code)
 
         elif style == "pastel_blue":
-            color_code = "#cce5ff"
+            color_code = "#a8d1fd"
             wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_red":
-            color_code = "ff0000"
+            color_code = "#7a0202"
             wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_black":
@@ -332,11 +332,11 @@ class NotePopup(Popup):
             wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_green":
-            color_code = "00aa00"
+            color_code = "#036d03"
             wrapped = self.toggle_color(selected, color_code)
 
         elif style == "color_blue":
-            color_code = "0000ff"
+            color_code = "#121274"
             wrapped = self.toggle_color(selected, color_code)
 
         else:
@@ -377,9 +377,9 @@ class NotePopup(Popup):
         self.show_preview = not self.show_preview
         self.update_preview(None, self.ids.note_input.text)
 
-class agenda(App):
+class MyNoteCalendar(App):
     def build(self):
         return AgendaWidget()
     
 if __name__ == '__main__':
-    agenda().run()
+    MyNoteCalendar().run()

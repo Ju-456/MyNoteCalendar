@@ -122,7 +122,7 @@
                         Widget:
 
                         Button:
-                            text: "<-" if root.show_preview else "->"
+                            text: "->" if root.show_preview else "<-"
                             size_hint_x: None
                             width: '40dp'
                             background_normal: ""
@@ -182,11 +182,6 @@
                             on_press: root.apply_style("color_red")
 
                         ButtonRounded:
-                            text: "[color=000000]B[/color][color=00aa00]"
-                            markup: True
-                            on_press: root.apply_style("color_black")
-
-                        ButtonRounded:
                             text: "[color=00aa00]G[/color]"
                             markup: True
                             on_press: root.apply_style("color_green")
@@ -195,3 +190,8 @@
                             text: "[color=0000ff]B[/color]"
                             markup: True
                             on_press: root.apply_style("color_blue")
+                        
+                        ButtonRounded:
+                            text: "[color=000000]Remove[/color][color=00aa00]"
+                            markup: True
+                            on_press: root.apply_style("color_black")

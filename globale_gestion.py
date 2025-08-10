@@ -10,15 +10,19 @@ from kivy.properties import StringProperty
 from kivy.factory import Factory
 from kivy.uix.textinput import TextInput
 from kivy.properties import BooleanProperty
+from kivy.uix.button import Button
+from kivy.core.window import Window
 
 import calendar
 from datetime import date, datetime
 import os
+import time
 
 from calendar_gestion import CurrentDayId 
 from calendar_gestion import MonthConvertInNumber
 from calendar_gestion import MonthConvertInNumberDico
 from calendar_gestion import GetDotMarkupFromFile
+from calendar_gestion import get_preview_text
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
 Builder.load_file("kivy_files/NotePopup.kv")
@@ -27,6 +31,10 @@ user_home = os.path.expanduser("~")
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        Window.bind(on_key_down=self.on_key_down)
+        self.click_on_p = False
+
         self.SelectCurrentMonth()
         Clock.schedule_once(self.SelectCurrentMonth, 0)
         Clock.schedule_once(self.CurrentDayEffect, 0.1) # wait for the charmgent
@@ -66,6 +74,18 @@ class AgendaWidget(TabbedPanel):
             button.background_color = (0.6, 0.8, 1, 1)  # clear blue
         else:
             print(f"the button '{current_day_id}' not found.")
+    
+    def on_key_down(self, window, key, scancode, codepoint, modifiers):
+        # Note: codepoint est en minuscule si c'est une lettre
+        if codepoint == 'p':
+            self.click_on_p = not self.click_on_p
+            print(f"Toggle click_on_p: {self.click_on_p}")
+            # Raffraichir le calendrier pour appliquer le changement
+            today = datetime.now()
+            year = today.year
+            month = today.month
+            first_day_index = calendar.monthrange(year, month)[0]
+            self.InitCalenderForCurrentMonth(year, month, first_day_index)
 
     def InitCalenderForCurrentMonth(self, current_year, current_month, first_day_index):
         nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the month
@@ -99,9 +119,14 @@ class AgendaWidget(TabbedPanel):
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")
                 
-                if os.path.exists(note_path):  
-                    button.text = GetDotMarkupFromFile(note_path, current_day_id, button_id, button.day_number)
-                
+                if os.path.exists(note_path):
+                    if self.click_on_p:  #detection with boolean
+                        print("click_on_p détecté dans InitCalenderForCurrentMonth")
+                        button.text = get_preview_text(note_path, button.day_number)
+                    else:
+                        print("click_on_p non détecté dans InitCalenderForCurrentMonth")
+                        button.text = GetDotMarkupFromFile(note_path, current_day_id, button_id, button.day_number)
+       
                 count += 1
         
         self.DisablePaddingButtons(current_year, current_month, first_day_index)

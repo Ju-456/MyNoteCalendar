@@ -1,8 +1,9 @@
-import calendar
 from datetime import date, datetime
-
+import calendar
 import os
 import re 
+
+user_home = os.path.expanduser("~")
 
 def FirstDayInAMonth():
     current_datetime = datetime.now()
@@ -56,3 +57,15 @@ def GetDotMarkupFromFile(filepath, current_day_id, button_id, button_day_number)
     print(f"button_id = {button_id} current_day_id = {current_day_id}")
     dots = "• " * number_of_dot
     return f"{button_day_number}\n[size=24][color={color}]{dots.strip()}[/color]"
+
+def get_preview_text(note_path, day_number, max_chars=200):
+    with open(note_path, 'r', encoding='utf-8') as f:
+        content = f.read().strip()
+    if not content:
+        return str(day_number)
+    
+    preview = content[:max_chars]
+    if len(content) > max_chars:
+        preview += "…"
+    return f"{day_number}\n[i]{preview}[/i]"
+

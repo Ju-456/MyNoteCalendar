@@ -116,7 +116,7 @@ class AgendaWidget(TabbedPanel):
                 button.markup = True
                 button.bind(on_press=self.DetectClickButton) # to detecxt click 
 
-                current_tab_folder = os.path.join(user_home, "NoteCalendar", month_abbr)
+                current_tab_folder = os.path.join(user_home, "MyNoteCalendar", month_abbr)
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")
                 
@@ -221,7 +221,7 @@ class NotePopup(Popup):
         print(f"DEBUG / current_tab = {current_tab}")
 
         if current_tab:
-            current_tab_folder = os.path.join(user_home,f"NoteCalendar", f"{self.month}")
+            current_tab_folder = os.path.join(user_home,f"MyNoteCalendar", f"{self.month}")
             current_tab_file = os.path.join(current_tab_folder, f"{self.month}_{self.day}.txt")
             print(f"DEBUG / self.month = {self.month}")
             print(f"DEBUG / self.day = {self.day}")
@@ -244,9 +244,21 @@ class NotePopup(Popup):
             self.dismiss()
 
         print(f"SaveNoteInAfile called. Text content: {self.ids.note_input.text}")
+    
+    def RemoveNote(self):
+        current_tab_file = os.path.join(user_home, "MyNoteCalendar", f"{self.month}", f"{self.month}_{self.day}.txt")
+        current_tab_folder = os.path.join(user_home,f"MyNoteCalendar", f"{self.month}")
+
+        if os.path.exists(current_tab_file):
+            os.remove(current_tab_file)
+            print(f"Remove the note for : {current_tab_file}")
+
+        if os.path.exists(current_tab_folder) and len(os.listdir(current_tab_folder)) == 0:
+            os.rmdir(current_tab_folder)
+            print(f"Remove the folder : {current_tab_folder} bc empty now")
 
     def LoadNote(self, month):
-        current_tab_folder = os.path.join(user_home, "NoteCalendar", month)
+        current_tab_folder = os.path.join(user_home, "MyNoteCalendar", month)
         note_path = os.path.join(current_tab_folder, f"{month}_{self.day}.txt")
         print(f"current_tab_folder: {current_tab_folder}")
         print(f"note_path: {note_path}")

@@ -1,6 +1,6 @@
 <ButtonRounded@Button>:
     background_normal: ''  
-    background_color: 0.8, 0.9, 1, 1  # clear blue
+    background_color: 0.7, 0.8, 0.95, 1  # blue
     canvas.before:
         Color:
             rgba: self.background_color
@@ -32,6 +32,7 @@
             orientation: "vertical"
             size_hint: 1,1 
             pos_hint: {"center_x": 0.5, "top": 1}
+            padding: [10, 0, 10, 20]
 
             canvas.before:
                 Color:
@@ -54,7 +55,7 @@
             RelativeLayout:
                 orientation: "vertical"
                 size: root.width, root.height
-                size_hint_y: 0.85
+                size_hint_y: 0.70
                     
                 TextInput:
                     id: note_input
@@ -84,109 +85,127 @@
                             pos: self.pos
                             size: self.size
 
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: 0.15
+
+                # Superior barre : style + ->/remove/save
                 BoxLayout:
-                    orientation: 'vertical'
-                    size_hint_y: 0.2
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: '30dp'
+                    spacing: 5
+                    padding: [0, 5, 0, 0]  
+
+                    ButtonRounded:
+                        text: "[b]B[/b]"
+                        size_hint_x: 0.7
+                        markup: True
+                        on_press: root.apply_style("bold")
+
+                    ButtonRounded:
+                        text: "[i]It[/i]"
+                        size_hint_x: 0.9
+                        markup: True
+                        on_press: root.apply_style("italic")
+
+                    ButtonRounded:
+                        text: "Pastel"
+                        font_size: 12
+                        size_hint_x: 1.1
+                        color: 0.5, 0.5, 0.5, 1
+                        background_normal: ''
+                        background_color: 1, 1, 0.7, 1
+                        on_press: root.toggle_pastel_menu()
+
+                    ButtonRounded:
+                        text: "[color=ff0000]C[/color][color=000000]o[/color][color=00aa00]l[/color][color=0000ff]o[/color][color=ffff00]r[/color]"
+                        font_size: 12
+                        size_hint_x: 1.20
+                        markup: True
+                        on_press: root.toggle_color_menu()
+
+                    Widget: # Widget who push "style + ->/remove/save" in the right
+
+                    Button:
+                        text: "->" if root.show_preview else "<-"
+                        size_hint_x: None
+                        width: '35dp'
+                        background_normal: ""
+                        background_color: 0.7, 0.8, 0.95, 1
+                        color: 0.5, 0.5, 0.5, 1
+                        on_press: root.toggle_view()
+
+                    Button:
+                        text: "Remove"
+                        font_size: 14
+                        size_hint_x: None
+                        width: '55dp'
+                        on_release:
+                            root.RemoveNote()
+                            root.dismiss()
+                        background_normal: ''
+                        background_color: 1, 0.6, 0.6, 1  # clear red
+
+                    Button:
+                        text: "Save"
+                        color: 0.5, 0.5, 0.5, 1
+                        size_hint_x: None
+                        width: '55dp'
+                        on_release:
+                            root.SaveNoteInAfile()
+                            root.dismiss()
+                        background_normal: ""
+                        background_color: 0.8, 1, 0.8, 1 # green pastel
+
+                # sub-menu for pastel
+                BoxLayout:
+                    id: pastel_menu
+                    size_hint_y: None
+                    height: 0
+                    opacity: 0
                     spacing: 5
 
-                    # Superior barre : style + save
-                    BoxLayout:
-                        orientation: 'horizontal'
-                        size_hint_y: None
-                        height: '40dp'
-                        spacing: 5
+                    Button:
+                        text: "G"
+                        color: 0.5, 0.5, 0.5, 1
+                        background_normal: ''
+                        background_color: 0.8, 1, 0.8, 1
+                        on_press: root.apply_style("pastel_green")
 
-                        ButtonRounded:
-                            text: "[b]B[/b]"
-                            markup: True
-                            on_press: root.apply_style("bold")
+                    Button:
+                        text: "Y"
+                        color: 0.5, 0.5, 0.5, 1
+                        background_normal: ''
+                        background_color: 1, 1, 0.7, 1
+                        on_press: root.apply_style("pastel_yellow")
 
-                        ButtonRounded:
-                            text: "[i]It[/i]"
-                            markup: True
-                            on_press: root.apply_style("italic")
+                    Button:
+                        text: "B"
+                        color: 0.5, 0.5, 0.5, 1
+                        background_normal: ''
+                        background_color: 0.8, 0.9, 1, 1
+                        on_press: root.apply_style("pastel_blue")
 
-                        ButtonRounded:
-                            text: "Pastel"
-                            color: 0.5, 0.5, 0.5, 1
-                            background_normal: ''
-                            background_color: 1, 1, 0.7, 1
-                            on_press: root.toggle_pastel_menu()
+                # sub-menu for colors
+                BoxLayout:
+                    id: color_menu
+                    size_hint_y: None
+                    height: 0
+                    opacity: 0
+                    spacing: 5
 
-                        ButtonRounded:
-                            text: "[color=ff0000]C[/color][color=000000]o[/color][color=00aa00]l[/color][color=0000ff]o[/color][color=ffff00]r[/color]"
-                            markup: True
-                            on_press: root.toggle_color_menu()
+                    ButtonRounded:
+                        text: "[color=ff0000]R[/color]"
+                        markup: True
+                        on_press: root.apply_style("color_red")
 
-                        # Widget who push "Save" in the right
-                        Widget:
+                    ButtonRounded:
+                        text: "[color=00aa00]G[/color]"
+                        markup: True
+                        on_press: root.apply_style("color_green")
 
-                        Button:
-                            text: "->" if root.show_preview else "<-"
-                            size_hint_x: None
-                            width: '40dp'
-                            background_normal: ""
-                            background_color: 0.8, 1, 0.8, 1
-                            color: 0.5, 0.5, 0.5, 1
-                            on_press: root.toggle_view()
-
-                        Button:
-                            text: "Save"
-                            size_hint_x: None
-                            width: '60dp'
-                            on_release:
-                                root.SaveNoteInAfile()
-                                root.dismiss()
-                            background_color: 0.5, 0.9, 0.5, 1
-
-                    # sub-menu for pastel
-                    BoxLayout:
-                        id: pastel_menu
-                        size_hint_y: None
-                        height: 0
-                        opacity: 0
-                        spacing: 5
-
-                        Button:
-                            text: "G"
-                            color: 0.5, 0.5, 0.5, 1
-                            background_normal: ''
-                            background_color: 0.8, 1, 0.8, 1
-                            on_press: root.apply_style("pastel_green")
-
-                        Button:
-                            text: "Y"
-                            color: 0.5, 0.5, 0.5, 1
-                            background_normal: ''
-                            background_color: 1, 1, 0.7, 1
-                            on_press: root.apply_style("pastel_yellow")
-
-                        Button:
-                            text: "B"
-                            color: 0.5, 0.5, 0.5, 1
-                            background_normal: ''
-                            background_color: 0.8, 0.9, 1, 1
-                            on_press: root.apply_style("pastel_blue")
-
-                    # sub-menu for colors
-                    BoxLayout:
-                        id: color_menu
-                        size_hint_y: None
-                        height: 0
-                        opacity: 0
-                        spacing: 5
-
-                        ButtonRounded:
-                            text: "[color=ff0000]R[/color]"
-                            markup: True
-                            on_press: root.apply_style("color_red")
-
-                        ButtonRounded:
-                            text: "[color=00aa00]G[/color]"
-                            markup: True
-                            on_press: root.apply_style("color_green")
-
-                        ButtonRounded:
-                            text: "[color=0000ff]B[/color]"
-                            markup: True
-                            on_press: root.apply_style("color_blue")
+                    ButtonRounded:
+                        text: "[color=0000ff]B[/color]"
+                        markup: True
+                        on_press: root.apply_style("color_blue")

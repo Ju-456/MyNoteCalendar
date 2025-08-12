@@ -74,9 +74,10 @@ Or choose classic colors from another submenu:
 ## Important Note on Colors and Styles
 
 To **remove a color or style**, select the text and press the same color or style button again. This works for both pastel and classic colors, as well as other effects like bold, italic, or underline.
+
 Demonstration :
 
-<img src="https://github.com/user-attachments/assets/4eef2749-4fc1-4fe3-b826-ccac8267be5d" width="500" />
+![example_remove_style_speed-ezgif com-speed](https://github.com/user-attachments/assets/2c98731c-437d-4973-9202-16dd9ecb0747)
 
 ---
 
@@ -84,7 +85,9 @@ Demonstration :
 
 Press the **`p` key** to toggle a much more detailed preview compared to the simple dots on the calendar. This lets each user customize their overview to their liking — one of the project’s favorite features!
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/80e860a7-fdc3-4324-a5cd-5b268ef9557a" />
+Demonstration :
+
+![click_on_p-ezgif com-speed](https://github.com/user-attachments/assets/705cf015-e728-4a84-aa6c-f2d11133fa26)
 
 ---
 

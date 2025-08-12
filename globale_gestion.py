@@ -1,22 +1,15 @@
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.clock import Clock
 from kivy.uix.popup import Popup
 from kivy.properties import StringProperty
-from kivy.factory import Factory
-from kivy.uix.textinput import TextInput
 from kivy.properties import BooleanProperty
-from kivy.uix.button import Button
 from kivy.core.window import Window
 
 import calendar
-from datetime import date, datetime
+from datetime import datetime
 import os
-import time
 import re
 
 from calendar_gestion import CurrentDayId 
@@ -33,7 +26,7 @@ class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        Window.bind(on_key_down=self.on_key_down)
+        Window.bind(on_key_down=self.on_key_down_p)
         self.click_on_p = False
 
         self.SelectCurrentMonth()
@@ -76,16 +69,16 @@ class AgendaWidget(TabbedPanel):
         else:
             print(f"the button '{current_day_id}' not found.")
     
-    def on_key_down(self, window, key, scancode, codepoint, modifiers):
-        # Note: codepoint est en minuscule si c'est une lettre
+    def on_key_down_p(self, window, key, scancode, codepoint, modifiers):
         if codepoint == 'p':
             self.click_on_p = not self.click_on_p
             print(f"Toggle click_on_p: {self.click_on_p}")
-            # Raffraichir le calendrier pour appliquer le changement
+
             today = datetime.now()
             year = today.year
             month = today.month
             first_day_index = calendar.monthrange(year, month)[0]
+
             self.InitCalenderForCurrentMonth(year, month, first_day_index)
 
     def InitCalenderForCurrentMonth(self, current_year, current_month, first_day_index):
@@ -122,10 +115,8 @@ class AgendaWidget(TabbedPanel):
                 
                 if os.path.exists(note_path):
                     if self.click_on_p:  #detection with boolean
-                        print("click_on_p détecté dans InitCalenderForCurrentMonth")
                         button.text = get_preview_text(note_path, button.day_number)
                     else:
-                        print("click_on_p non détecté dans InitCalenderForCurrentMonth")
                         button.text = GetDotMarkupFromFile(note_path, current_day_id, button_id, button.day_number)
        
                 count += 1
@@ -388,6 +379,15 @@ class NotePopup(Popup):
     def toggle_view(self):
         self.show_preview = not self.show_preview
         self.update_preview(None, self.ids.note_input.text)
+
+    def close_pastel_menu(self):
+        self.pastel_menu.opacity = 0
+        self.pastel_menu.disabled = True
+
+    def close_color_menu(self):
+        self.color_menu.opacity = 0
+        self.color_menu.disabled = True
+
 
 class MyNoteCalendar(App):
     def build(self):

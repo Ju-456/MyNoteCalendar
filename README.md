@@ -14,7 +14,7 @@ project_root/
 │
 ├── globale_gestion.py # Main application logic and classes
 │
-└── calendar_gestion.py # Helper functions for calendar management
+└── calendar_gestion.py # Annexe functions
 ```
 
 ## Overview

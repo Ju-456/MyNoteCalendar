@@ -14,7 +14,9 @@ project_root/
 │
 ├── globale_gestion.py # Main application logic and classes
 │
-└── calendar_gestion.py # Annexe functions
+├── annexe_functions.py 
+│
+└── main.py
 ```
 
 ## Overview
@@ -109,7 +111,7 @@ All notes and data are saved locally on your device to guarantee **full privacy*
 ```bash
 git clone https://your-repo-url.git
 cd MyNoteCalendar
-python3 globale_gestion.py main.py
+python3 main.py
 ```
 
 # APK Availability  

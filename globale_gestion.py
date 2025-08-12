@@ -12,11 +12,11 @@ from datetime import datetime
 import os
 import re
 
-from calendar_gestion import CurrentDayId 
-from calendar_gestion import MonthConvertInNumber
-from calendar_gestion import MonthConvertInNumberDico
-from calendar_gestion import GetDotMarkupFromFile
-from calendar_gestion import get_preview_text
+from annexe_functions import CurrentDayId 
+from annexe_functions import MonthConvertInNumber
+from annexe_functions import MonthConvertInNumberDico
+from annexe_functions import GetDotMarkupFromFile
+from annexe_functions import get_preview_text
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
 Builder.load_file("kivy_files/NotePopup.kv")
@@ -38,7 +38,7 @@ class AgendaWidget(TabbedPanel):
         month = today.month
         first_day_index = calendar.monthrange(year, month)[0]
         
-        self.InitCalenderForCurrentMonth(year, month, first_day_index)
+        self.InitCalendarForCurrentMonth(year, month, first_day_index)
         self.bind(current_tab=self.DetectTabChange)
 
         self.note_popup = None
@@ -79,9 +79,9 @@ class AgendaWidget(TabbedPanel):
             month = today.month
             first_day_index = calendar.monthrange(year, month)[0]
 
-            self.InitCalenderForCurrentMonth(year, month, first_day_index)
+            self.InitCalendarForCurrentMonth(year, month, first_day_index)
 
-    def InitCalenderForCurrentMonth(self, current_year, current_month, first_day_index):
+    def InitCalendarForCurrentMonth(self, current_year, current_month, first_day_index):
         nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the month
         count = 1 
 
@@ -167,7 +167,7 @@ class AgendaWidget(TabbedPanel):
             today = datetime.now()
             year = today.year
             first_day_index = calendar.monthrange(year, month_num)[0]
-            self.InitCalenderForCurrentMonth(year, month_num, first_day_index)
+            self.InitCalendarForCurrentMonth(year, month_num, first_day_index)
         else:
             print("User is nowhere")
 
@@ -392,6 +392,3 @@ class NotePopup(Popup):
 class MyNoteCalendar(App):
     def build(self):
         return AgendaWidget()
-    
-if __name__ == '__main__':
-    MyNoteCalendar().run()

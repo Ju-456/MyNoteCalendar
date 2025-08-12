@@ -49,8 +49,8 @@ Kivy doesn’t support direct editing inline, so a **RelativeLayout** is used to
 Toggle between these modes with the small arrow button left of the Save button, which switches between `->` and `<-`.
 
 <p float="left">
-  <img src="https://github.com/user-attachments/assets/af6dd013-6c87-4272-9766-9a9b272f69c6" width="500" style="margin-right:10px" />
-  <img src="https://github.com/user-attachments/assets/475467ea-a7f7-4643-9a3e-5343ff152fbb" width="500" />
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/0f379133-189a-47c3-a601-44b484a42da6" style="margin-right:10px"/>
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/54b2bf36-feff-4959-b340-e3b268cffda9" />
 </p>
 
 ---
@@ -59,7 +59,7 @@ Toggle between these modes with the small arrow button left of the Save button, 
 
 You can highlight notes using pastel colors from a submenu:
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/3358a34e-dbe8-4d5a-b968-442487bcb805" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/8189683d-6dd0-4ca5-ac2c-53d32cc2c448" />
 
 ---
 
@@ -67,7 +67,7 @@ You can highlight notes using pastel colors from a submenu:
 
 Or choose classic colors from another submenu:
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/95ffb409-2ce2-4f61-9957-4f811c1a3ba9" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/fa4b6b9e-f556-4d26-8432-71c2bb5c8433" />
 
 ---
 

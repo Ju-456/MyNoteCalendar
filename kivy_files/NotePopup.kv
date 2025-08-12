@@ -25,7 +25,14 @@
             background_color: 1, 0.4, 0.4, 1  # clear red
             color: 1, 1, 1, 1  
             font_size: '16sp'
-            on_release: root.dismiss()
+            on_release:
+                root.dismiss()
+                
+                root.ids.pastel_menu.height = 0
+                root.ids.pastel_menu.opacity = 0
+
+                root.ids.color_menu.height = 0
+                root.ids.color_menu.opacity = 0
             pos_hint: {"right": 1, "top": 1.10}
 
         BoxLayout:
@@ -93,9 +100,9 @@
                 BoxLayout:
                     orientation: 'horizontal'
                     size_hint_y: None
-                    height: '30dp'
+                    height: '20dp'
                     spacing: 5
-                    padding: [0, 5, 0, 0]  
+                    padding: [0, 10, 0, 0]  
 
                     ButtonRounded:
                         text: "[b]B[/b]"
@@ -165,6 +172,7 @@
                     height: 0
                     opacity: 0
                     spacing: 5
+                    padding : [0,10,0,0] 
 
                     Button:
                         text: "G"
@@ -194,6 +202,7 @@
                     height: 0
                     opacity: 0
                     spacing: 5
+                    padding : [0,10,0,0] 
 
                     ButtonRounded:
                         text: "[color=ff0000]R[/color]"

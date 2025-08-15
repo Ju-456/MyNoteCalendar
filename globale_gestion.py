@@ -6,6 +6,7 @@ from kivy.uix.popup import Popup
 from kivy.properties import StringProperty
 from kivy.properties import BooleanProperty
 from kivy.core.window import Window
+from kivy.utils import platform
 
 import calendar
 from datetime import datetime
@@ -17,6 +18,7 @@ from annexe_functions import MonthConvertInNumber
 from annexe_functions import MonthConvertInNumberDico
 from annexe_functions import GetDotMarkupFromFile
 from annexe_functions import get_preview_text
+from annexe_functions import get_app_storage_path
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
 Builder.load_file("kivy_files/NotePopup.kv")
@@ -212,7 +214,8 @@ class NotePopup(Popup):
         print(f"DEBUG / current_tab = {current_tab}")
 
         if current_tab:
-            current_tab_folder = os.path.join(user_home,f"MyNoteCalendar", f"{self.month}")
+            base_path = get_app_storage_path() # adapted path in function of platform
+            current_tab_folder = os.path.join(base_path, f"{self.month}")
             current_tab_file = os.path.join(current_tab_folder, f"{self.month}_{self.day}.txt")
             print(f"DEBUG / self.month = {self.month}")
             print(f"DEBUG / self.day = {self.day}")
@@ -287,74 +290,59 @@ class NotePopup(Popup):
         
         Clock.schedule_once(lambda dt: ti.select_all(), 0) # 1st clock cycle : register the departure
         Clock.schedule_once(lambda dt: self.store_selection(ti.selection_from, ti.selection_to), 0.01) # # 2nd clock cycle : save all the selection 
-
+    
     def apply_style(self, style):
         ti = self.ids.note_input
-        s = self.selection_from
-        e = self.selection_to
+        s, e = self.selection_from, self.selection_to
 
         if s == e:
             print("No text selected")
             return
-
         if s > e:
             s, e = e, s
 
-        selected = ti.text[s:e] #force the selection even if we lost the focus when we click on a button
+        selected = ti.text[s:e]
         ti.select_text(s, e)
 
-        if style == "bold":
-            if selected.startswith("[b]") and selected.endswith("[/b]"):
-                wrapped = selected[3:-4]
-            else:
-                wrapped = f"[b]{selected}[/b]"
+        tag_map = {
+            "bold": "b",
+            "italic": "i",
+            "pastel_green": "color=#a6fca6",
+            "pastel_yellow": "color=#dada6c",
+            "pastel_blue": "color=#a8d1fd",
+            "color_red": "color=#7a0202",
+            "color_green": "color=#036d03",
+            "color_blue": "color=#121274",
+        }
 
-        elif style == "italic":
-            if selected.startswith("[i]") and selected.endswith("[/i]"):
-                wrapped = selected[3:-4]
-            else:
-                wrapped = f"[i]{selected}[/i]"
-
-        elif style == "pastel_green":
-            color_code = "#a6fca6"
-            wrapped = self.toggle_color(selected, color_code)
-
-        elif style == "pastel_yellow":
-            color_code = "#dada6c"
-            wrapped = self.toggle_color(selected, color_code)
-
-        elif style == "pastel_blue":
-            color_code = "#a8d1fd"
-            wrapped = self.toggle_color(selected, color_code)
-
-        elif style == "color_red":
-            color_code = "#7a0202"
-            wrapped = self.toggle_color(selected, color_code)
-
-        elif style == "color_green":
-            color_code = "#036d03"
-            wrapped = self.toggle_color(selected, color_code)
-
-        elif style == "color_blue":
-            color_code = "#121274"
-            wrapped = self.toggle_color(selected, color_code)
-
-        else:
+        if style not in tag_map:
             return
+
+        wrapped = self.toggle_bbcode(selected, tag_map[style])
 
         ti.text = ti.text[:s] + wrapped + ti.text[e:]
         self.note_preview = ti.text
         ti.focus = True
 
-    def toggle_color(self, text, color_code):
-        open_tag = f"[color={color_code}]"
-        close_tag = "[/color]"
-
-        pattern = re.compile(rf'^\[color={re.escape(color_code)}\](.*)\[/color\]$', re.DOTALL)
+    def toggle_bbcode(self, text, tag):
+        if tag.startswith("color="):
+            open_tag = f"[{tag}]"
+            close_tag = "[/color]"
+            pattern = re.compile(
+                rf'^\s*\[{re.escape(tag)}\]\s*(.*?)\s*\[/color\]\s*$',
+                re.DOTALL
+            )
+        else:
+            open_tag = f"[{tag}]"
+            close_tag = f"[/{tag}]"
+            pattern = re.compile(
+                rf'^\s*\[{re.escape(tag)}\]\s*(.*?)\s*\[/{re.escape(tag)}\]\s*$',
+                re.DOTALL
+            )
 
         match = pattern.match(text)
         if match:
-            return match.group(1)
+            return match.group(1)  # déwrappé
         else:
             return f"{open_tag}{text}{close_tag}"
 

@@ -1,3 +1,5 @@
+#:import platform kivy.utils.platform
+
 <ButtonRounded@Button>:
     background_normal: ''  
     background_color: 0.7, 0.8, 0.95, 1  # blue
@@ -11,7 +13,7 @@
 
 <NotePopup>:
     auto_dismiss: False
-    size_hint: 0.45, 0.5
+    size_hint: (0.65, 0.7) if platform == "android" else (0.45, 0.5)
     title: ""
     on_open: root.LoadNote(root.month)
 
@@ -33,7 +35,7 @@
 
                 root.ids.color_menu.height = 0
                 root.ids.color_menu.opacity = 0
-            pos_hint: {"right": 1, "top": 1.10}
+            pos_hint: {"right": 1, "top": 1.20} if platform == "android" else {"right": 1, "top": 1.10}
 
         BoxLayout:
             orientation: "vertical"
@@ -145,7 +147,7 @@
 
                     Button:
                         text: "Remove"
-                        font_size: 14
+                        font_size: 16 if platform == "android" else 14
                         size_hint_x: None
                         width: '55dp'
                         on_release:

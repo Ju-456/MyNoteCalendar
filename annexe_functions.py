@@ -2,8 +2,8 @@ from datetime import date, datetime
 import calendar
 import os
 import re 
-
-user_home = os.path.expanduser("~")
+from kivy.app import App
+from kivy.utils import platform
 
 def FirstDayInAMonth():
     current_datetime = datetime.now()
@@ -68,4 +68,21 @@ def get_preview_text(note_path, day_number, max_chars=200):
     if len(content) > max_chars:
         preview += "…"
     return f"{day_number}\n[i]{preview}[/i]"
+
+def get_app_storage_path():
+    from kivy.utils import platform
+    try:
+        if platform in ("android", "ios"):
+            return App.get_running_app().user_data_dir
+        else:
+            return os.path.expanduser("~/MyNoteCalendar")
+    except Exception:
+        if platform == "android":
+            from android.storage import app_storage_path
+            return app_storage_path()
+        elif platform == "ios":
+            from os.path import expanduser
+            return os.path.join(expanduser("~"), "Documents")
+        else:
+            return os.path.expanduser("~/MyNoteCalendar")
 

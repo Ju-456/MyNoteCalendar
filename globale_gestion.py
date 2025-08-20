@@ -6,7 +6,10 @@ from kivy.uix.popup import Popup
 from kivy.properties import StringProperty
 from kivy.properties import BooleanProperty
 from kivy.core.window import Window
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.popup import Popup
 from kivy.utils import platform
+from kivy.graphics import Color, Rectangle
 
 import calendar
 from datetime import datetime
@@ -22,7 +25,6 @@ from annexe_functions import get_app_storage_path
 
 Builder.load_file("kivy_files/AgendaWidget.kv")
 Builder.load_file("kivy_files/NotePopup.kv")
-user_home = os.path.expanduser("~")
 
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
@@ -111,7 +113,8 @@ class AgendaWidget(TabbedPanel):
                 button.markup = True
                 button.bind(on_press=self.DetectClickButton) # to detecxt click 
 
-                current_tab_folder = os.path.join(user_home, "MyNoteCalendar", month_abbr)
+                user_home = get_app_storage_path()
+                current_tab_folder = os.path.join(user_home, month_abbr)
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")
                 
@@ -209,6 +212,13 @@ class NotePopup(Popup):
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
         self.ids.note_input.bind(text=self.update_preview)
 
+        if platform == "android":
+            self.size_hint = (None, None) 
+            self.size = (800, 400)
+
+            self.auto_dismiss = True
+            self.pos_hint = {'center_x': 0.5, 'center_y': 0.55} 
+
     def SaveNoteInAfile(self):
         current_tab = self.ids.tab_label.text # active tab
         print(f"DEBUG / current_tab = {current_tab}")
@@ -240,8 +250,9 @@ class NotePopup(Popup):
         print(f"SaveNoteInAfile called. Text content: {self.ids.note_input.text}")
     
     def RemoveNote(self):
-        current_tab_file = os.path.join(user_home, "MyNoteCalendar", f"{self.month}", f"{self.month}_{self.day}.txt")
-        current_tab_folder = os.path.join(user_home,f"MyNoteCalendar", f"{self.month}")
+        user_home = get_app_storage_path()
+        current_tab_file = os.path.join(user_home, f"{self.month}", f"{self.month}_{self.day}.txt")
+        current_tab_folder = os.path.join(user_home, f"{self.month}")
 
         if os.path.exists(current_tab_file):
             os.remove(current_tab_file)
@@ -252,7 +263,8 @@ class NotePopup(Popup):
             print(f"Remove the folder : {current_tab_folder} bc empty now")
 
     def LoadNote(self, month):
-        current_tab_folder = os.path.join(user_home, "MyNoteCalendar", month)
+        user_home = get_app_storage_path()
+        current_tab_folder = os.path.join(user_home, month)
         note_path = os.path.join(current_tab_folder, f"{month}_{self.day}.txt")
         print(f"current_tab_folder: {current_tab_folder}")
         print(f"note_path: {note_path}")
@@ -342,7 +354,7 @@ class NotePopup(Popup):
 
         match = pattern.match(text)
         if match:
-            return match.group(1)  # déwrappé
+            return match.group(1)  # dewrapped
         else:
             return f"{open_tag}{text}{close_tag}"
 
@@ -375,8 +387,22 @@ class NotePopup(Popup):
     def close_color_menu(self):
         self.color_menu.opacity = 0
         self.color_menu.disabled = True
-
-
+ 
 class MyNoteCalendar(App):
     def build(self):
-        return AgendaWidget()
+            
+        root = FloatLayout()
+        main_content = AgendaWidget()
+
+        if platform == "android":
+            
+            with root.canvas.before:
+                Color(0.7, 0.8, 0.95, 1)         # background clear blue
+                self.bg_rect = Rectangle(size=Window.size, pos=(0, 0))
+
+            main_content.size_hint = (1, None)   # hint of the screen
+            main_content.height = 700            # fixed height
+            main_content.pos = (0, Window.height - main_content.height)  # in the top
+
+        root.add_widget(main_content)
+        return root

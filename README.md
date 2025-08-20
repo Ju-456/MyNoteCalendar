@@ -114,7 +114,21 @@ cd MyNoteCalendar
 python3 main.py
 ```
 
+optional : how to run "check_files.sh" ? ( to verify before build with buildozer)
+```bash
+chmod +x check_files.sh
+  ./check_files.sh
+```
+
 # APK Availability  
-The APK will soon be available in the Kivy folders for download so everyone can easily install and use the app on their devices.
+The APK will is available for android ! 🥳
+
+<p float="left">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/f32884ec-cbce-42cd-935b-e0c6e8078ba1" style="margin-right:10px" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/749f2682-d7ed-426e-b3a4-c83fd6b69b34" />
+</p>
+
+The IOS app is coming soon !
+
 Feel free to give me your feedback and suggestions to improve the app ! ;)
 

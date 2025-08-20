@@ -9,14 +9,17 @@ A simple, **dynamic** calendar agenda built with **Kivy** that automatically upd
 project_root/
 │
 ├── kivy_files/
-│ ├── AgendaWidget.kv # Main window layout
-│ └── NotePopup.kv # All popup-related layouts and widgets
+│ ├── AgendaWidget.kv      # Main window layout
+│ └── NotePopup.kv         # All popup-related layouts and widgets
 │
-├── globale_gestion.py # Main application logic and classes
+├──── globale_gestion.py   # Main application logic and classes
+├──── annexe_functions.py
 │
-├── annexe_functions.py 
+├──── buildozer.spec       # to init buildozer and build the apk
+├──── icon.png             # the image of the apk
+├──── check_files.sh       # to identify potential issues before building
 │
-└── main.py
+└──── main.py
 ```
 
 ## Overview

@@ -78,7 +78,7 @@ def get_app_storage_path():
             return os.path.expanduser("~/MyNoteCalendar")
     except Exception:
         if platform == "android":
-            from android.storage import app_storage_path
+            from android.storage import app_storage_path # type: ignore
             return app_storage_path()
         elif platform == "ios":
             from os.path import expanduser

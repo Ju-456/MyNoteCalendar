@@ -10,6 +10,8 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.popup import Popup
 from kivy.utils import platform
 from kivy.graphics import Color, Rectangle
+from kivy.uix.image import Image
+from kivy.uix.label import Label
 
 import calendar
 from datetime import datetime
@@ -107,7 +109,13 @@ class AgendaWidget(TabbedPanel):
                 button.text = str(count)
                 button.halign = "left"
                 button.valign = "top"
-                button.text_size = button.size
+                
+                if platform == "android":
+                    button.font_size = 32
+                else :
+                    button.font_size = 15
+                
+                button.color = (0.2, 0.2, 0.2, 1)
                 button.padding = (5, 5)  # optional padding 
                 button.shorten = False  
                 button.markup = True
@@ -178,7 +186,6 @@ class AgendaWidget(TabbedPanel):
 
     def DetectClickButton(self, instance):
         current_tab = self.current_tab  # active tab
-
         #to integer in NotePopup
         day = instance.text.strip().splitlines()[0]
         month = current_tab.text.lower() 
@@ -189,7 +196,6 @@ class AgendaWidget(TabbedPanel):
         if current_tab:
             print(f"\nReaction test -> You clicked: {month}_{day}_btn\n")
             button_name = f"Write a note for the [b]{day} {month}[/b] :"
-            #print(button_name)
 
             if not self.note_popup:
                 self.note_popup = NotePopup(day=day, month=month)
@@ -387,22 +393,45 @@ class NotePopup(Popup):
     def close_color_menu(self):
         self.color_menu.opacity = 0
         self.color_menu.disabled = True
- 
+
 class MyNoteCalendar(App):
+
+    def specific_design_android(self, root, main_content):
+        with root.canvas.before:
+            Color(0.7, 0.8, 0.95, 1)         # background clear blue
+            self.bg_rect = Rectangle(size=Window.size, pos=(0, 0))
+
+            main_content.size_hint = (1, None)   # hint of the screen
+            main_content.height = 700            # fixed height
+            main_content.pos = (0, Window.height - main_content.height)  # in the top
+
+            deco_img = Image(
+                source = "icon.png",         
+                size_hint = (None, None),
+                size = (500, 500),           
+                pos_hint = {'center_x': 0.5, 'y': 0}  
+            )
+            root.add_widget(deco_img)
+
+            title_label = Label(
+                text = "My Note Calendar",
+                color = (1, 1, 1, 1), 
+                font_size = 48,         
+                bold = True,
+                italic = True,
+                size_hint = (None, None),      
+                size = (500, 55),
+                pos = (Window.width/2 - 250, 480)
+            )
+            root.add_widget(title_label)
+
     def build(self):
             
         root = FloatLayout()
         main_content = AgendaWidget()
 
         if platform == "android":
-            
-            with root.canvas.before:
-                Color(0.7, 0.8, 0.95, 1)         # background clear blue
-                self.bg_rect = Rectangle(size=Window.size, pos=(0, 0))
-
-            main_content.size_hint = (1, None)   # hint of the screen
-            main_content.height = 700            # fixed height
-            main_content.pos = (0, Window.height - main_content.height)  # in the top
+            self.specific_design_android(root, main_content)
 
         root.add_widget(main_content)
         return root

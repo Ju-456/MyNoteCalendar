@@ -56,7 +56,7 @@
                 markup: True
                 text_size: self.size
                 color: 0, 0, 0, 1
-                font_size: 15
+                font_size: '16sp' if platform == "android" else '15sp'
                 halign: "center"
                 valign: "middle"
                 size_hint_y: 0.2
@@ -81,7 +81,7 @@
                     text: ''
                     text_size: self.width, self.height
                     color: 0, 0, 0, 1
-                    font_size: 15
+                    font_size: '17sp' if platform == "android" else '15sp'
                     halign: "left"
                     valign: "top"
                     size_hint: 1, 1
@@ -120,7 +120,7 @@
 
                     ButtonRounded:
                         text: "Pastel"
-                        font_size: 12
+                        font_size: '14sp' if platform == "android" else '12sp'
                         size_hint_x: 1.1
                         color: 0.5, 0.5, 0.5, 1
                         background_normal: ''
@@ -129,7 +129,7 @@
 
                     ButtonRounded:
                         text: "[color=ff0000]C[/color][color=000000]o[/color][color=00aa00]l[/color][color=0000ff]o[/color][color=ffff00]r[/color]"
-                        font_size: 12
+                        font_size: '14sp' if platform == "android" else '12sp'
                         size_hint_x: 1.20
                         markup: True
                         on_press: root.toggle_color_menu()
@@ -147,7 +147,7 @@
 
                     Button:
                         text: "Remove"
-                        font_size: 16 if platform == "android" else 14
+                        font_size: '14sp' if platform == "android" else '16sp'
                         size_hint_x: None
                         width: '55dp'
                         on_release:

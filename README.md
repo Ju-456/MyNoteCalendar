@@ -19,6 +19,9 @@ project_root/
 ├──── icon.png             # the image of the apk
 ├──── check_files.sh       # to identify potential issues before building
 │
+├──── MyNoteCalendarV1.apk       
+├──── MyNoteCalendarV2.apk 
+│
 └──── main.py
 ```
 
@@ -112,7 +115,7 @@ All notes and data are saved locally on your device to guarantee **full privacy*
 ## How to Run
 
 ```bash
-git clone https://your-repo-url.git
+git clone https://github.com/Ju-456/MyNoteCalendar
 cd MyNoteCalendar
 python3 main.py
 ```
@@ -124,14 +127,14 @@ chmod +x check_files.sh
 ```
 
 # APK Availability  
-The APK will is available for android ! 🥳
+2 APK are now available for android ! 🥳
 
 <p float="left">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/f32884ec-cbce-42cd-935b-e0c6e8078ba1" style="margin-right:10px" />
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/749f2682-d7ed-426e-b3a4-c83fd6b69b34" />
 </p>
 
-The IOS app is coming soon !
+# APP for PC Availability will coming soon
 
 Feel free to give me your feedback and suggestions to improve the app ! ;)
 

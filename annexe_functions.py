@@ -39,7 +39,7 @@ def CurrentDayId(first_day_index, current_month):
 
     return current_day_id
 
-def GetDotMarkupFromFile(filepath, current_day_id, button_id, button_day_number):
+def get_dot_markup_from_file(filepath, current_day_id, button_id, button_day_number):
     if not os.path.exists(filepath):
         return str(button_day_number)
 

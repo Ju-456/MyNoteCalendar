@@ -21,7 +21,7 @@ import re
 from annexe_functions import CurrentDayId 
 from annexe_functions import MonthConvertInNumber
 from annexe_functions import MonthConvertInNumberDico
-from annexe_functions import GetDotMarkupFromFile
+from annexe_functions import get_dot_markup_from_file
 from annexe_functions import get_preview_text
 from annexe_functions import get_app_storage_path
 
@@ -32,20 +32,18 @@ class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        Window.bind(on_key_down=self.on_key_down_p)
-        self.click_on_p = False
-
-        self.SelectCurrentMonth()
-        Clock.schedule_once(self.SelectCurrentMonth, 0)
-        Clock.schedule_once(self.CurrentDayEffect, 0.1) # wait for the charmgent
-
-        today = datetime.now()
-        year = today.year
-        month = today.month
-        first_day_index = calendar.monthrange(year, month)[0]
+        print(f"Platform detected: {platform}")
         
-        self.InitCalendarForCurrentMonth(year, month, first_day_index)
+        if platform != "android" : 
+            self.show_text_mode = False # false = dot, true = text preview
+            Window.bind(on_key_down=self.on_key_down_p)
+        else:
+            self.show_text_mode = True
+
+        self.refresh_current_month()
         self.bind(current_tab=self.DetectTabChange)
+        Clock.schedule_once(self.SelectCurrentMonth, 0)
+        Clock.schedule_once(self.CurrentDayEffect, 0.1) # wait for the charge
 
         self.note_popup = None
 
@@ -73,19 +71,23 @@ class AgendaWidget(TabbedPanel):
             button = self.ids[current_day_id]
             button.background_color = (0.6, 0.8, 1, 1)  # clear blue
         else:
-            print(f"the button '{current_day_id}' not found.")
+            print(f"the button '{current_day_id}' not found.")  
     
+    def refresh_current_month(self):
+        today = datetime.now()
+        year, month = today.year, today.month
+        first_day_index = calendar.monthrange(year, month)[0]
+        self.InitCalendarForCurrentMonth(year, month, first_day_index)
+
+    def toggle_text_mode(self, _instance):
+        self.show_text_mode = not self.show_text_mode
+        self.refresh_current_month()
+
     def on_key_down_p(self, window, key, scancode, codepoint, modifiers):
-        if codepoint == 'p':
-            self.click_on_p = not self.click_on_p
-            print(f"Toggle click_on_p: {self.click_on_p}")
-
-            today = datetime.now()
-            year = today.year
-            month = today.month
-            first_day_index = calendar.monthrange(year, month)[0]
-
-            self.InitCalendarForCurrentMonth(year, month, first_day_index)
+        if codepoint and codepoint.lower() == 'p':
+            self.toggle_text_mode(None)
+            return True
+        return False
 
     def InitCalendarForCurrentMonth(self, current_year, current_month, first_day_index):
         nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the month
@@ -109,12 +111,7 @@ class AgendaWidget(TabbedPanel):
                 button.text = str(count)
                 button.halign = "left"
                 button.valign = "top"
-                
-                if platform == "android":
-                    button.font_size = 32
-                else :
-                    button.font_size = 15
-                
+                button.font_size = 32 if platform == "android" else 15
                 button.color = (0.2, 0.2, 0.2, 1)
                 button.padding = (5, 5)  # optional padding 
                 button.shorten = False  
@@ -124,14 +121,17 @@ class AgendaWidget(TabbedPanel):
                 user_home = get_app_storage_path()
                 current_tab_folder = os.path.join(user_home, month_abbr)
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
-                print(f"note_path: {note_path}")
-                
+                print(f"note_path: {note_path}")    
+                    
                 if os.path.exists(note_path):
-                    if self.click_on_p:  #detection with boolean
-                        button.text = get_preview_text(note_path, button.day_number)
+                    if platform != "android" :
+                        if self.show_text_mode:
+                            button.text = get_preview_text(note_path, button.day_number)
+                        else:
+                            button.text = get_dot_markup_from_file(note_path, current_day_id, button_id, button.day_number)
                     else:
-                        button.text = GetDotMarkupFromFile(note_path, current_day_id, button_id, button.day_number)
-       
+                        button.text = get_preview_text(note_path, button.day_number)
+
                 count += 1
         
         self.DisablePaddingButtons(current_year, current_month, first_day_index)
@@ -307,7 +307,7 @@ class NotePopup(Popup):
         ti.focus = True
         
         Clock.schedule_once(lambda dt: ti.select_all(), 0) # 1st clock cycle : register the departure
-        Clock.schedule_once(lambda dt: self.store_selection(ti.selection_from, ti.selection_to), 0.01) # # 2nd clock cycle : save all the selection 
+        Clock.schedule_once(lambda dt: self.store_selection(ti.selection_from, ti.selection_to), 0.01) # 2nd clock cycle : save all the selection 
     
     def apply_style(self, style):
         ti = self.ids.note_input
@@ -347,16 +347,12 @@ class NotePopup(Popup):
             open_tag = f"[{tag}]"
             close_tag = "[/color]"
             pattern = re.compile(
-                rf'^\s*\[{re.escape(tag)}\]\s*(.*?)\s*\[/color\]\s*$',
-                re.DOTALL
-            )
+                rf'^\s*\[{re.escape(tag)}\]\s*(.*?)\s*\[/color\]\s*$',re.DOTALL)
         else:
             open_tag = f"[{tag}]"
             close_tag = f"[/{tag}]"
             pattern = re.compile(
-                rf'^\s*\[{re.escape(tag)}\]\s*(.*?)\s*\[/{re.escape(tag)}\]\s*$',
-                re.DOTALL
-            )
+                rf'^\s*\[{re.escape(tag)}\]\s*(.*?)\s*\[/{re.escape(tag)}\]\s*$',re.DOTALL)
 
         match = pattern.match(text)
         if match:
@@ -395,15 +391,18 @@ class NotePopup(Popup):
         self.color_menu.disabled = True
 
 class MyNoteCalendar(App):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.main_content = AgendaWidget()
 
-    def specific_design_android(self, root, main_content):
+    def specific_design_android(self, root):
         with root.canvas.before:
             Color(0.7, 0.8, 0.95, 1)         # background clear blue
             self.bg_rect = Rectangle(size=Window.size, pos=(0, 0))
 
-            main_content.size_hint = (1, None)   # hint of the screen
-            main_content.height = 700            # fixed height
-            main_content.pos = (0, Window.height - main_content.height)  # in the top
+            self.main_content.size_hint = (1, None)   # hint of the screen
+            self.main_content.height = 700            # fixed height
+            self.main_content.pos = (0, Window.height - self.main_content.height)  # in the top
 
             deco_img = Image(
                 source = "icon.png",         
@@ -426,12 +425,10 @@ class MyNoteCalendar(App):
             root.add_widget(title_label)
 
     def build(self):
-            
         root = FloatLayout()
-        main_content = AgendaWidget()
 
-        if platform == "android":
-            self.specific_design_android(root, main_content)
+        # if platform == "android":
+        #     self.specific_design_android(root)
 
-        root.add_widget(main_content)
+        root.add_widget(self.main_content)
         return root

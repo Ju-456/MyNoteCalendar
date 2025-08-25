@@ -15,14 +15,16 @@ project_root/
 ├──── globale_gestion.py   # Main application logic and classes
 ├──── annexe_functions.py
 │
+├──── main.py
+│
 ├──── buildozer.spec       # to init buildozer and build the apk
 ├──── icon.png             # the image of the apk
 ├──── check_files.sh       # to identify potential issues before building
 │
 ├──── MyNoteCalendarV1.apk       
 ├──── MyNoteCalendarV2.apk 
-│
-└──── main.py
+│  
+└──── MyNoteCalendar.exe   # will coming soon
 ```
 
 ## Overview
@@ -129,12 +131,24 @@ chmod +x check_files.sh
 # APK Availability  
 2 APK are now available for android ! 🥳
 
+MyNoteCalendarV1.apk : (closer to PC version's design)
+
 <p float="left">
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/f32884ec-cbce-42cd-935b-e0c6e8078ba1" style="margin-right:10px" />
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/749f2682-d7ed-426e-b3a4-c83fd6b69b34" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7494187c-f31d-40cd-a77a-4ecdcd775f2d" style="margin-right:10px" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/423a6c65-3161-497e-aa25-209f996abf6a" />
 </p>
 
-# APP for PC Availability will coming soon
+MyNoteCalendarV2.apk : (my favorite, more adapted to the phone format)
 
+<p float="left">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/982d166d-7624-4a02-b7d6-2a0fe9e003de" style="margin-right:10px" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/be28a582-7210-4b3f-a02b-56cdd44527a7" />
+</p>
+
+# APP for PC Availability will coming soon !!!
+
+the .exe is build and ready but not the installer
+
+---
 Feel free to give me your feedback and suggestions to improve the app ! ;)
 

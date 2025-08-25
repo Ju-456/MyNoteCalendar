@@ -58,6 +58,7 @@ Kivy doesn’t support direct editing inline, so a **RelativeLayout** is used to
 
 Toggle between these modes with the small arrow button left of the Save button, which switches between `->` and `<-`.
 
+
 <p float="left">
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/0f379133-189a-47c3-a601-44b484a42da6" style="margin-right:10px" />
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/54b2bf36-feff-4959-b340-e3b268cffda9" />

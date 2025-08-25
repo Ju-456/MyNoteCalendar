@@ -15,7 +15,7 @@ from kivy.uix.label import Label
 
 import calendar
 from datetime import datetime
-import os
+import os, sys
 import re
 
 from annexe_functions import CurrentDayId 
@@ -25,8 +25,19 @@ from annexe_functions import get_dot_markup_from_file
 from annexe_functions import get_preview_text
 from annexe_functions import get_app_storage_path
 
-Builder.load_file("kivy_files/AgendaWidget.kv")
-Builder.load_file("kivy_files/NotePopup.kv")
+if sys.platform.startswith("win"):
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(__file__))
+
+    agenda_path = os.path.join(base_path, "AgendaWidget.kv")
+    notepopup_path = os.path.join(base_path, "NotePopup.kv")
+    print("AgendaWidget.kv path:", agenda_path)
+    print("NotePopup.kv path:", notepopup_path)
+
+    Builder.load_file(agenda_path)
+    Builder.load_file(notepopup_path)
+else :
+    Builder.load_file("kivy_files/AgendaWidget.kv")
+    Builder.load_file("kivy_files/NotePopup.kv")
 
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
@@ -111,7 +122,14 @@ class AgendaWidget(TabbedPanel):
                 button.text = str(count)
                 button.halign = "left"
                 button.valign = "top"
-                button.font_size = 32 if platform == "android" else 15
+
+                if platform == "android":
+                    button.font_size = 32
+                elif sys.platform.startswith("win"):
+                    button.font_size = 30
+                else:
+                    button.font_size = 15
+                
                 button.color = (0.2, 0.2, 0.2, 1)
                 button.padding = (5, 5)  # optional padding 
                 button.shorten = False  

@@ -185,9 +185,14 @@ MyNoteCalendarV2.apk : (my favorite, more adapted to the phone format)
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/be28a582-7210-4b3f-a02b-56cdd44527a7" />
 </p>
 
-# APP for PC Availability will coming soon !!!
+# APP for PC Availability now !!!
 
-the .exe is build and ready but not the installer
+Install MyNoteCalendar.exe for your PC (it's the same as before but with a better quality) :
+
+<p float="left">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/ce2e2b5e-6dbd-4c4a-bbc7-4a8137264c3e" style="margin-right:10px"/>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0264d5ce-b543-4863-aee2-81cb52c04423" />
+</p>
 
 ---
 Feel free to give me your feedback and suggestions to improve the app ! ;)

@@ -25,7 +25,7 @@ from annexe_functions import get_dot_markup_from_file
 from annexe_functions import get_preview_text
 from annexe_functions import get_app_storage_path
 
-if sys.platform.startswith("win"):
+if platform == "win":
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(__file__))
 
     agenda_path = os.path.join(base_path, "AgendaWidget.kv")
@@ -216,7 +216,7 @@ class AgendaWidget(TabbedPanel):
             button_name = f"Write a note for the [b]{day} {month}[/b] :"
 
             if not self.note_popup:
-                self.note_popup = NotePopup(day=day, month=month)
+                self.note_popup = NotePopup(day=day, month=month, parent_agenda=self)
                 self.note_popup.open()
             else:# maj of all attribute
                 self.note_popup.day = day
@@ -225,14 +225,26 @@ class AgendaWidget(TabbedPanel):
                 self.note_popup.LoadNote(month)  # forced the loading
                 self.note_popup.open()
                         
+    def refresh_displayed_month(self):
+        if self.current_tab:
+            month_text = self.current_tab.text.lower()
+            month_dict = MonthConvertInNumberDico()
+            month_num = month_dict.get(month_text)
+            if month_num:
+                today = datetime.now()
+                year = today.year
+                first_day_index = calendar.monthrange(year, month_num)[0]
+                self.InitCalendarForCurrentMonth(year, month_num, first_day_index)
+
 class NotePopup(Popup):
     label_text = StringProperty("")
     show_preview = BooleanProperty(True)
     
-    def __init__(self, day, month, **kwargs):
+    def __init__(self, day, month, parent_agenda=None, **kwargs):
         super().__init__(**kwargs)
         self.day = str(day).strip().splitlines()[0]
         self.month = month
+        self.parent_agenda = parent_agenda
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
         self.ids.note_input.bind(text=self.update_preview)
 
@@ -269,6 +281,8 @@ class NotePopup(Popup):
             with open(current_tab_file, 'w', encoding='utf-8') as f:
                 f.write(note_text)
                 print(f"Note mise à jour dans le fichier : {current_tab_file}")
+            if self.parent_agenda:
+                self.parent_agenda.refresh_displayed_month()
             self.dismiss()
 
         print(f"SaveNoteInAfile called. Text content: {self.ids.note_input.text}")
@@ -285,6 +299,9 @@ class NotePopup(Popup):
         if os.path.exists(current_tab_folder) and len(os.listdir(current_tab_folder)) == 0:
             os.rmdir(current_tab_folder)
             print(f"Remove the folder : {current_tab_folder} bc empty now")
+        
+        if self.parent_agenda: # Refresh agenda after removing
+            self.parent_agenda.refresh_displayed_month()
 
     def LoadNote(self, month):
         user_home = get_app_storage_path()

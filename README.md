@@ -9,23 +9,62 @@ A simple, **dynamic** calendar agenda built with **Kivy** that automatically upd
 project_root/
 │
 ├── kivy_files/
-│ ├── AgendaWidget.kv      # Main window layout
-│ └── NotePopup.kv         # All popup-related layouts and widgets
+│   ├── AgendaWidget.kv        # Main window layout
+│   └── NotePopup.kv           # All popup-related layouts and widgets
 │
-├──── globale_gestion.py   # Main application logic and classes
-├──── annexe_functions.py
+├── globale_gestion.py         # Main application logic and classes
+├── annexe_functions.py        # Additional helper functions
+├── main.py                    # Entry point
 │
-├──── main.py
+├── requirements.txt           # Python dependencies
+├── check_files.sh             # Script to identify potential issues before building
 │
-├──── buildozer.spec       # to init buildozer and build the apk
-├──── icon.png             # the image of the apk
-├──── check_files.sh       # to identify potential issues before building
+├── assets/
+│   ├── icon.png               # App icon (PNG)
+│   └── icon.ico               # Windows-compatible icon
 │
-├──── MyNoteCalendarV1.apk       
-├──── MyNoteCalendarV2.apk 
-│  
-└──── MyNoteCalendar.exe   # will coming soon
+├── build_and_spec_files/
+│   ├── buildozer.spec         # To init buildozer and build the APK
+│   ├── main.spec              # PyInstaller spec file
+│   ├── MyNoteCalendar.spec    # Alternative PyInstaller spec
+│   └── MyNoteCalendar.iss     # Inno Setup script for Windows installer
+│
+├── App/
+│   ├── MyNoteCalendar.exe     # Windows executable build
+│   ├── MyNoteCalendarV1.apk   # Android build (first version)
+│   └── MyNoteCalendarV2.apk   # Android build (second version)
+│
+└── README.md
 ```
+## ⚠️ Prevention & Build Notes
+
+### 🪟 To create the `.exe` on Windows
+```powershell
+python -m PyInstaller --name "MyNoteCalendar" --windowed --onefile --icon=icon.ico --add-data "AgendaWidget.kv;." --add-data "NotePopup.kv;." .\main.py
+```
+Be careful:
+All files (AgendaWidget.kv, NotePopup.kv, icon.ico) must be at the root level when building on Windows.
+Windows builds don’t handle subfolders (like kivy_files/ or assets/) very well.
+
+### 🤖 To create the APK
+```powershell
+buildozer -v android debug
+```
+Be careful:
+As on Windows, icon.png must be at the root level when building on apk.
+
+### ℹ️ Important Information
+
+This structure is designed for ease of use and readability while coding.
+But when it comes to building (.exe or .apk), the build tools can be picky:
+Windows build often requires all files in root.
+Icons have been moved to assets/, but build scripts may still expect them in root.
+
+If you plan to modify the project and then rebuild, you have two options:
+Update paths in code and .spec files.
+Rearrange the file structure back to a flat layout (everything in root).
+
+👉 Recommended: Adapt your file structure to match the build requirements after coding changes, because builds can fail with nested folders.
 
 ## Overview
 
@@ -152,4 +191,3 @@ the .exe is build and ready but not the installer
 
 ---
 Feel free to give me your feedback and suggestions to improve the app ! ;)
-

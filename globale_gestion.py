@@ -262,7 +262,7 @@ class NotePopup(Popup):
         super().__init__(**kwargs)
         self.day = str(day).strip().splitlines()[0]
         self.month = month
-        self.parent_agenda = parent_agenda
+        self.parent_agenda = parent_agenda 
         print(f"In NotePopup : NotePopup created for day: {day}, month: {month}")
         self.ids.note_input.bind(text=self.update_preview)
 
@@ -477,29 +477,49 @@ class MyNoteCalendar(App):
             )
             root.add_widget(title_label)
 
+    def preview_toggle_button(self):
+        toggle_btn = ToggleButton(
+            text="Text preview : [b]OFF[/b]",
+            size_hint=(None, None),
+            size=(310, 100),
+            pos=(50, 50),
+            background_color=(0.6, 0.8, 1, 1),
+            markup=True
+        )
+        toggle_btn.bind(state=self.on_toggle_preview)
+        return toggle_btn
+
+    def on_toggle_preview(self, instance, value):
+        show_text = instance.state == "down"
+        instance.text = f"Text preview : [b]{'ON' if show_text else 'OFF'}[/b]"
+        self.show_text_mode = show_text
+        self.update_buttons_preview(show_text)
+
+    def update_buttons_preview(self, show_text):
+        if not self.main_content.current_tab or not self.main_content.current_tab.text:
+            return
+
+        month_abbr = self.main_content.current_tab.text.lower()
+        user_home = get_app_storage_path()
+
+        for btn_id, widget in self.main_content.ids.items():
+            if hasattr(widget, "day_number") and btn_id.startswith(month_abbr):
+                button = widget
+                user_home = get_app_storage_path()
+                note_path = os.path.join(user_home, month_abbr, f"{month_abbr}_{button.day_number}.txt")
+                
+                if os.path.exists(note_path):
+                    if show_text:
+                        button.text = get_preview_text(note_path, button.day_number)
+                    else:
+                        button.text = get_dot_markup_from_file(note_path, None, btn_id, button.day_number)
+
     def build(self):
         root = FloatLayout()
 
         if platform == "android":
             self.specific_design_android(root)
-
-            toggle_btn = ToggleButton(
-                text="Text preview : [b]OFF[/b]",
-                size_hint=(None, None),
-                size=(310, 100),
-                pos=(50, 50),
-                background_color=(0.6, 0.8, 1, 1),
-                markup=True  
-            )
-
-            def on_toggle(instance, value):
-                if instance.state == "down":
-                    instance.text = "Text preview : [b]ON[/b]"
-                else:
-                    instance.text = "Text preview : [b]OFF[/b]"
-
-            toggle_btn.bind(state=on_toggle)
-            root.add_widget(toggle_btn)
+            root.add_widget(self.preview_toggle_button())
 
         root.add_widget(self.main_content)
         return root

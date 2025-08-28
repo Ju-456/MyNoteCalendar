@@ -36,6 +36,12 @@ project_root/
 │
 └── README.md
 ```
+# Where are Apps ?
+On release !
+
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/8a9c11b5-3d6a-4fe7-ad4c-9ab81a0ebf14" />
+
+
 ## ⚠️ Prevention & Build Notes
 
 ### 🪟 To create the `.exe` on Windows
@@ -171,23 +177,23 @@ chmod +x check_files.sh
 # APK Availability  
 2 APK are now available for android ! 🥳
 
-MyNoteCalendarV1.apk : (closer to PC version's design)
-
-<p float="left">
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/7494187c-f31d-40cd-a77a-4ecdcd775f2d" style="margin-right:10px" />
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/423a6c65-3161-497e-aa25-209f996abf6a" />
-</p>
-
-MyNoteCalendarV2.apk : (my favorite, more adapted to the phone format)
+MyNoteCalendarV1.apk : fullscreen mode only with preview text
 
 <p float="left">
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/982d166d-7624-4a02-b7d6-2a0fe9e003de" style="margin-right:10px" />
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/be28a582-7210-4b3f-a02b-56cdd44527a7" />
 </p>
 
+MyNoteCalendarV2.apk : closer to PC version with a button ON/OFF to remplace the functionnality of the touch 'p' (my favorite ;))
+
+<p float="left">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ed1e0bc2-b65f-44e0-950f-c3901839b66e" style="margin-right:10px"/>
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9db24d6a-cadb-474c-933a-5cd090d19977" />
+</p>
+
 # APP for PC Availability now !!!
 
-Install MyNoteCalendar.exe for your PC (it's the same as before but with a better quality) :
+Install MyNoteCalendar.exe for your PC (it's the same as before but on Windows so with a better quality) :
 
 <p float="left">
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/ce2e2b5e-6dbd-4c4a-bbc7-4a8137264c3e" style="margin-right:10px"/>

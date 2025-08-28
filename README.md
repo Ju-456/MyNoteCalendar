@@ -29,11 +29,6 @@ project_root/
 │   ├── MyNoteCalendar.spec    # Alternative PyInstaller spec
 │   └── MyNoteCalendar.iss     # Inno Setup script for Windows installer
 │
-├── App/
-│   ├── MyNoteCalendar.exe     # Windows executable build
-│   ├── MyNoteCalendarV1.apk   # Android build (first version)
-│   └── MyNoteCalendarV2.apk   # Android build (second version)
-│
 └── README.md
 ```
 # Where are Apps ?

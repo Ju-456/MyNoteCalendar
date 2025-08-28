@@ -12,6 +12,7 @@ from kivy.utils import platform
 from kivy.graphics import Color, Rectangle
 from kivy.uix.image import Image
 from kivy.uix.label import Label
+from kivy.uix.togglebutton import ToggleButton
 
 import calendar
 from datetime import datetime
@@ -39,11 +40,13 @@ else :
     Builder.load_file("kivy_files/AgendaWidget.kv")
     Builder.load_file("kivy_files/NotePopup.kv")
 
+
 class AgendaWidget(TabbedPanel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
         print(f"Platform detected: {platform}")
+        self.active_tab = None
         
         if platform != "android" : 
             self.show_text_mode = False # false = dot, true = text preview
@@ -96,20 +99,32 @@ class AgendaWidget(TabbedPanel):
 
     def on_key_down_p(self, window, key, scancode, codepoint, modifiers):
         if codepoint and codepoint.lower() == 'p':
-            self.toggle_text_mode(None)
+            if hasattr(self, "active_tab") and self.active_tab:  
+                print(f"Toggled preview in tab: {self.active_tab.text}")
+                self.toggle_text_mode(None)
+            else:
+                print("No active tab selected!")
             return True
         return False
 
     def InitCalendarForCurrentMonth(self, current_year, current_month, first_day_index):
-        nb_days_in_month = calendar.monthrange(current_year, current_month)[1]  # total of number in the month
-        count = 1 
+        count = 1
 
-        month_abbr = calendar.month_abbr[current_month].lower()
+        if self.current_tab and self.current_tab.text:
+            month_abbr = self.current_tab.text.lower()
+            month_number = MonthConvertInNumberDico()[month_abbr]
+        else:
+            month_abbr = calendar.month_abbr[current_month].lower()
+            month_number = current_month
+
+        nb_days_in_month = calendar.monthrange(current_year, month_number)[1]
+        first_day_index = calendar.monthrange(current_year, month_number)[0]
+
         today = datetime.now()
         current_day_id = None
-        if current_month == today.month and current_year == today.year:
-            today_first_day_index = calendar.monthrange(current_year, current_month)[0]
-            current_day_id = CurrentDayId(today_first_day_index, current_month)
+        if month_number == today.month and current_year == today.year:
+            today_first_day_index = calendar.monthrange(current_year, month_number)[0]
+            current_day_id = CurrentDayId(today_first_day_index, month_number)
             print(f"current_day_id: {current_day_id}")
 
         for i in range(first_day_index, first_day_index + nb_days_in_month):
@@ -137,6 +152,7 @@ class AgendaWidget(TabbedPanel):
                 button.bind(on_press=self.DetectClickButton) # to detecxt click 
 
                 user_home = get_app_storage_path()
+                month_abbr = self.current_tab.text.lower() # change
                 current_tab_folder = os.path.join(user_home, month_abbr)
                 note_path = os.path.join(current_tab_folder, f"{month_abbr}_{button.day_number}.txt")
                 print(f"note_path: {note_path}")    
@@ -185,6 +201,7 @@ class AgendaWidget(TabbedPanel):
         print(current_tab.text)
 
         if current_tab:
+            self.active_tab = current_tab # to stock the current tab 
             print(f"User is in the month : {current_tab.text}")
 
             month_text = current_tab.text.lower() 
@@ -201,6 +218,7 @@ class AgendaWidget(TabbedPanel):
             self.InitCalendarForCurrentMonth(year, month_num, first_day_index)
         else:
             print("User is nowhere")
+            self.active_tab = None # to track the current tab
 
     def DetectClickButton(self, instance):
         current_tab = self.current_tab  # active tab
@@ -435,35 +453,53 @@ class MyNoteCalendar(App):
             Color(0.7, 0.8, 0.95, 1)         # background clear blue
             self.bg_rect = Rectangle(size=Window.size, pos=(0, 0))
 
-            self.main_content.size_hint = (1, None)   # hint of the screen
+            self.main_content.size_hint = (1, 0.82)   # hint of the screen
             self.main_content.height = 700            # fixed height
-            self.main_content.pos = (0, Window.height - self.main_content.height)  # in the top
+            self.main_content.pos_hint = {"top": 1}  # in the top
 
             deco_img = Image(
                 source = "icon.png",         
                 size_hint = (None, None),
-                size = (500, 500),           
-                pos_hint = {'center_x': 0.5, 'y': 0}  
+                size=(320, 320),           
+                pos_hint = {'center_x': 0.80, 'y': 0}  
             )
             root.add_widget(deco_img)
 
             title_label = Label(
                 text = "My Note Calendar",
                 color = (1, 1, 1, 1), 
-                font_size = 48,         
+                font_size = 36,         
                 bold = True,
                 italic = True,
                 size_hint = (None, None),      
-                size = (500, 55),
-                pos = (Window.width/2 - 250, 480)
+                size = (400, 50),
+                pos=(Window.width * 0.80 - 200, 315) 
             )
             root.add_widget(title_label)
 
     def build(self):
         root = FloatLayout()
 
-        # if platform == "android":
-        #     self.specific_design_android(root)
+        if platform == "android":
+            self.specific_design_android(root)
+
+            toggle_btn = ToggleButton(
+                text="Text preview : [b]OFF[/b]",
+                size_hint=(None, None),
+                size=(310, 100),
+                pos=(50, 50),
+                background_color=(0.6, 0.8, 1, 1),
+                markup=True  
+            )
+
+            def on_toggle(instance, value):
+                if instance.state == "down":
+                    instance.text = "Text preview : [b]ON[/b]"
+                else:
+                    instance.text = "Text preview : [b]OFF[/b]"
+
+            toggle_btn.bind(state=on_toggle)
+            root.add_widget(toggle_btn)
 
         root.add_widget(self.main_content)
         return root
